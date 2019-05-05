@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>开启Django之旅一 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="python_vue,工作总结,python,Django,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-01-03
+    </span>
+    
+      <span>
+        | <a href="/categories/python-vue/"><i class="fa fa-bookmark"></i>python_vue</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    开启Django之旅一
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2019-01-03-8.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <h1 id="从零开始撸Django——第一篇"><a href="#从零开始撸Django——第一篇" class="headerlink" title="从零开始撸Django——第一篇"></a>从零开始撸Django——第一篇</h1><p>​    由于公司的后端用的是python，他一步一步的“侵蚀”了我。这踏马的也太牛了。。。所以，面临毕业设计的我果断选择了用 python 代替了 nodejs 作为我的小项目的后端语言了。</p>
+<p>​    要撸起来，得先把环境搭搭好。</p>
+<h3 id="一、python3-6环境的搭建"><a href="#一、python3-6环境的搭建" class="headerlink" title="一、python3.6环境的搭建"></a>一、python3.6环境的搭建</h3><p>​    在这里，我将项目源码放在服务器（腾讯云——Ubuntu）上，代码的编写为 win10——pyCharm 环境。所以，python的安装需要在<code>本机win10</code>和<code>服务器Ubuntu</code>上分别搭建python。</p>
+<h4 id="关于win10："><a href="#关于win10：" class="headerlink" title="关于win10："></a>关于win10：</h4><p>​    在python官网下载并安装python3.6，记得将 <code>python</code> 加到系统 <code>path</code>。并注意安装 pip</p>
+<p><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">戳我下载：https://www.python.org/downloads/</a></p>
+<h4 id="关于Ubuntu："><a href="#关于Ubuntu：" class="headerlink" title="关于Ubuntu："></a>关于Ubuntu：</h4><p>​    由于Ubuntu18.04自带python3.6，所以这里只需要安装 <code>pip</code>。</p>
+<p>​    输入下方的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br></pre></td></tr></table></figure>
+<h3 id="二、安装python虚拟机"><a href="#二、安装python虚拟机" class="headerlink" title="二、安装python虚拟机"></a>二、安装python虚拟机</h3><p>​    接下来在服务器上安装 python 虚拟机。关于python虚拟机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install virtualenv</span><br><span class="line">sudo pip3 install virtualenvwrapper</span><br></pre></td></tr></table></figure>
+<p>​    安装好之后，在 root 文件夹创建一个私有文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root</span><br><span class="line">mkdir .virtualenvs</span><br></pre></td></tr></table></figure>
+<p>​    创建好文件夹之后，将下方代码填到<code>root</code>目录下的 <code>.bashrc</code> 文件的最底部。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim .bashrc <span class="comment">#vim进入文件，下方为需要插入的代码</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> WORKON_HOME=/root/.virtualenvs</span><br><span class="line"><span class="built_in">export</span> VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3</span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<h3 id="三、nginx的安装"><a href="#三、nginx的安装" class="headerlink" title="三、nginx的安装"></a>三、nginx的安装</h3><p>​    在服务器上安装 <code>nginx</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx</span><br></pre></td></tr></table></figure>
+<p>​    nginx安装好之后就会在 <code>/var</code> 文件夹之下创建一个 <code>www</code> 文件夹，如果没有就去看看其他的文件夹下有没有这个<code>www</code> ，比如说 <code>/usr/share/nginx</code> 里看看。这个文件夹就作为了我们项目放置的文件跟目录。</p>
+<h3 id="四、本地项目的创建以及与服务器之间的上传与更新问题"><a href="#四、本地项目的创建以及与服务器之间的上传与更新问题" class="headerlink" title="四、本地项目的创建以及与服务器之间的上传与更新问题"></a>四、本地项目的创建以及与服务器之间的上传与更新问题</h3><h4 id="使用-pyCharm-创建一个django-项目。"><a href="#使用-pyCharm-创建一个django-项目。" class="headerlink" title="使用 pyCharm 创建一个django 项目。"></a>使用 <code>pyCharm</code> 创建一个<code>django</code> 项目。</h4><p><img src="http://blogimg.since1105.wang/2019-01-03-1.png?a=1" alt="1"></p>
+<p>​    注意命名，以及添加一个<code>app</code>。</p>
+<p>​    在创建中， <code>pycharm</code> 会帮你弄好一个干净的 python 虚拟环境，以及干净的 <code>django</code> 代码。</p>
+<h4 id="导出项目的依赖库"><a href="#导出项目的依赖库" class="headerlink" title="导出项目的依赖库"></a>导出项目的依赖库</h4><p>使用 pip freeze 导出依赖库配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这种方式推荐配合 virtualenv ，否则会把整个环境中的包都列出来。</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-2.png" alt="1"></p>
+<p>​    这个文件有着在服务器上搭建和本机相同环境的作用。</p>
+<h4 id="配置-pycharm-的代码自动上传"><a href="#配置-pycharm-的代码自动上传" class="headerlink" title="配置 pycharm 的代码自动上传"></a>配置 <code>pycharm</code> 的代码自动上传</h4><p><img src="http://blogimg.since1105.wang/2019-01-03-3.png" alt="1"></p>
+<p>​    在上图 <code>configuration</code> 中进行服务器的相关配置。</p>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-4.png" alt="1"></p>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-5.png" alt="1"></p>
+<p>​</p>
+<p>​    将本地目录与服务器目录进行映射。</p>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-6.png" alt="1"></p>
+<p>​    保存配置后，回到 <code>tools</code> 里将 <code>Automatic Upload</code> 打勾。这样就做到每一次保存代码，便会将文件上传至服务器的相对应目录当中。</p>
+<p>​    配置好之后的第一次需手动上传代码到服务器上。</p>
+<p>​    在 IDE 目录列表里，选中文件或文件夹，按键盘 <code>ctrl + shift + alt + x</code> ，出现下图服务器列表。</p>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-7.png" alt="1"></p>
+<p>​    点击 <code>first</code> 这个服务器名就好了。</p>
+<blockquote>
+<p>需要注意的地方：</p>
+<p>​        <code>venv library root</code> 这个文件夹不需要上传。其他都上传。</p>
+</blockquote>
+<h3 id="五、开启服务器上的虚拟环境"><a href="#五、开启服务器上的虚拟环境" class="headerlink" title="五、开启服务器上的虚拟环境"></a>五、开启服务器上的虚拟环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv -a /var/www/firstdjango --python=python3.6 firstdjango</span><br><span class="line"><span class="comment"># 注意python版本 和 项目文件夹名</span></span><br></pre></td></tr></table></figure>
+<h3 id="六、让项目跑起来。。。"><a href="#六、让项目跑起来。。。" class="headerlink" title="六、让项目跑起来。。。"></a>六、让项目跑起来。。。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/firstdjango</span><br><span class="line">pip install -r requirements.txt  <span class="comment"># 安装项目依赖</span></span><br><span class="line">chmod a+x ./manage.py   <span class="comment"># 给 manager.py 权限</span></span><br><span class="line">./manage.py runserver   <span class="comment"># 让项目跑起来。。。</span></span><br><span class="line"><span class="comment"># 最后run的时候可能会报错，有可能是换行符的问题，在 pycharm 右下角修改给换行符为 '/n' 就好了</span></span><br></pre></td></tr></table></figure>
+<p>​    此时，访问 <code>http://你的域名:8000</code> 看到小火箭在飞的话，那么你已经完成基础配置了，nice！！！</p>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-8.png" alt="1"></p>
+<hr>
+<h3 id="七、项目起来了，外带一个-nginx-的配置"><a href="#七、项目起来了，外带一个-nginx-的配置" class="headerlink" title="七、项目起来了，外带一个 nginx 的配置"></a>七、项目起来了，外带一个 nginx 的配置</h3><p>在本地项目中新建文件，<code>nginx.conf</code> 。</p>
+<p><img src="http://blogimg.since1105.wang/2019-01-03-9.png" alt="1"></p>
+<p>在 <code>nginx.conf</code> 输入以下代码：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">root</span> /var/www/firstdjango;</span><br><span class="line">    <span class="comment"># Add index.php to the list if you are using PHP</span></span><br><span class="line">    <span class="attribute">index</span> index.html index.htm ;</span><br><span class="line">    <span class="attribute">server_name</span> www.abc.com;</span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Origin'</span> <span class="string">'*'</span>;</span><br><span class="line">        <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Credentials'</span> <span class="string">'true'</span>;</span><br><span class="line">        <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Methods'</span> <span class="string">'GET, POST, OPTIONS,PATCH,PUT'</span>;</span><br><span class="line">        <span class="attribute">add_header</span> <span class="string">'Access-Control-Allow-Headers'</span> <span class="string">'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> HTTP_X_FORWARDED_PROTO https;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://127.0.0.1:8000;</span><br><span class="line">        <span class="attribute">client_max_body_size</span> <span class="number">2m</span>;</span><br><span class="line">        <span class="attribute">include</span> proxy_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存上传文件至服务器。</p>
+<p>回到服务器上，进行一些骚操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /var/www/firstdjango/firstdjango/nginx.conf /etc/nginx/sites-enabled/firstdjango</span><br></pre></td></tr></table></figure>
+<p>软链接，将项目中的 <code>nginx.conf</code> 与 服务器 <code>nginx</code> 做关联。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail /var/<span class="built_in">log</span>/nginx/error.log   <span class="comment"># 监控错误日志</span></span><br><span class="line">systemctl reload nginx    <span class="comment"># 重启 nginx 服务</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>​    okok，第一次的django搭建，在大神的指点下完成。本来是想在 win10 ubuntu的子系统里搭的，再搭配 ngrok 把服务器代理到本地，然后美滋滋开发，后来发现，win10 的 ubuntu 算是个阉割版的吧，好多东西都跑不起来。可能是我垃圾吧。。。。哈哈哈哈哈。。。。</p>
+<p>​    反正服务器空着也是空着，折腾起来。。。</p>
+<hr>
+<p>​    我擦，最后的最后，这应该放前面的，Ubuntu开启root登陆。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">Port 22</span><br><span class="line"><span class="comment">#AddressFamily any</span></span><br><span class="line">AddressFamily inet</span><br><span class="line">ListenAddress 0.0.0.0</span><br><span class="line"><span class="comment">#ListenAddress ::</span></span><br><span class="line"></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line">sudo service ssh restart</span><br></pre></td></tr></table></figure>
+<p>​    愉快玩耍。。。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从零开始撸Django——第一篇"><span class="toc-text">从零开始撸Django——第一篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、python3-6环境的搭建"><span class="toc-text">一、python3.6环境的搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于win10："><span class="toc-text">关于win10：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于Ubuntu："><span class="toc-text">关于Ubuntu：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、安装python虚拟机"><span class="toc-text">二、安装python虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、nginx的安装"><span class="toc-text">三、nginx的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、本地项目的创建以及与服务器之间的上传与更新问题"><span class="toc-text">四、本地项目的创建以及与服务器之间的上传与更新问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-pyCharm-创建一个django-项目。"><span class="toc-text">使用 pyCharm 创建一个django 项目。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#导出项目的依赖库"><span class="toc-text">导出项目的依赖库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置-pycharm-的代码自动上传"><span class="toc-text">配置 pycharm 的代码自动上传</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、开启服务器上的虚拟环境"><span class="toc-text">五、开启服务器上的虚拟环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、让项目跑起来。。。"><span class="toc-text">六、让项目跑起来。。。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、项目起来了，外带一个-nginx-的配置"><span class="toc-text">七、项目起来了，外带一个 nginx 的配置</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2019-01-03-开启Django之旅一/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/工作总结/"><i class="fa fa-tags"></i>工作总结</a>
+     
+      <a href="/tags/python/"><i class="fa fa-tags"></i>python</a>
+     
+      <a href="/tags/Django/"><i class="fa fa-tags"></i>Django</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2019-01-21-django_vue寻找最佳web搭档/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-12-02-小程序审核申请注意点/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

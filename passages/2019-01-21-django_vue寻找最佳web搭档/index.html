@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>django_vue寻找最佳web搭档 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="python_vue,工作总结,python,Django,vue,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-01-21
+    </span>
+    
+      <span>
+        | <a href="/categories/python-vue/"><i class="fa fa-bookmark"></i>python_vue</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    django_vue寻找最佳web搭档
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/django_vue.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <blockquote>
+<p>打造一个前后端都舒适的开发环境 —— <code>django_vue</code></p>
+</blockquote>
+<p>上了班以后，vue用的多了，慢慢就变成了一个vue重度用户，开发如果不用类似vue这种的MVVM框架，写起东西来总感觉不够称手。所以再django框架中嵌入一个vue，岂不是美滋滋。</p>
+<p>现在都2019年了，赶个时髦，vue就选择<code>vue-cli3</code>。</p>
+<h3 id="1、本机安装-node-和-vue-cli3"><a href="#1、本机安装-node-和-vue-cli3" class="headerlink" title="1、本机安装 node 和 vue-cli3"></a>1、本机安装 node 和 vue-cli3</h3><p>装好node，vue官网看看，瞬间就能装好 vue-cli3。<a href="https://cli.vuejs.org/" target="_blank" rel="noopener">戳我官网</a></p>
+<h3 id="2、在项目中搭建-vue"><a href="#2、在项目中搭建-vue" class="headerlink" title="2、在项目中搭建 vue"></a>2、在项目中搭建 vue</h3><p>打开 pyCharm ，进入项目的 Terminal 。执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vue create spa</span><br><span class="line"><span class="comment"># 创建一个名为 spa（Single Page Application —— 单页应用） 的 vue 项目</span></span><br><span class="line"><span class="comment"># 虽然名为单页，但是之后通过django和vue的相关配置，实现多页开发。</span></span><br></pre></td></tr></table></figure>
+<p>进入创建spa项目的环节</p>
+<p><img src="http://blogimg.since1105.wang/2019_01_16_1.png" alt="1"></p>
+<p>第一次新建项目选择， &gt; Manually Sel…. 最后这个</p>
+<p><img src="http://blogimg.since1105.wang/2019_01_16_2.png" alt="1"></p>
+<p>在列表中选择可能在项目中会用到的部分依赖，按需选择没必要全部安装。当然，漏装某个依赖也没事，以后需要用到的时候在手动安装就好了。操作方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上下切换依赖</span><br><span class="line">空格选择依赖</span><br><span class="line">回车进入下一步</span><br></pre></td></tr></table></figure>
+<p>这里我选择的是 （Babel，Router，Vuex，CSS Pre-processors/css预加载器）</p>
+<p>之前如果选择了，<code>CSS Pre-processors</code>，下一步就选择将会用到的预加载器。</p>
+<p><img src="http://blogimg.since1105.wang/2019_01_16_3.png" alt="1"></p>
+<p>看具体需要。</p>
+<p><img src="http://blogimg.since1105.wang/2019_01_16_4.png" alt="1"></p>
+<p>最后，他会询问是否将之前的选择和配置记录下来方便下一次新建时可以直接选择。那就好的吧，给这个配置命个名，确定就好了。</p>
+<p>最后，安装vue搭建完成后，在项目目录下会有一个spa文件夹，这就是今后撸前端代码的地方。</p>
+<p><img src="http://blogimg.since1105.wang/2019_01_16_5.png" alt="1"></p>
+<h3 id="3、扩充项目目录"><a href="#3、扩充项目目录" class="headerlink" title="3、扩充项目目录"></a>3、扩充项目目录</h3><p>vue3.0之后，简略了vue的目录结构，什么config文件夹啊什么的都没了。他以一个最简的形式帮你搭好了目录。但是，最简对于我们这个项目来说肯定是不够的，至少还缺了个 <code>static</code> 文件夹用于存放开发环境的静态文件 、 一个关键的 <code>vue.conf.js</code> vue的配置文件 和 一个多页文件夹 <code>pages</code>。</p>
+<p>手动在 <code>django</code> 整个大项目的根下添加文件夹 <code>static</code> 用作静态文件的备用存储位置 和 <code>templates</code> 作为django模板的存放位置。<br>在 <code>spa</code> 根下添加文件 <code>vue.conf.js</code> 下一步就会用到。<br>在 <code>spa/src</code> 下创建文件夹 <code>pages</code> ，在 <code>pages</code> 里再添加一个单页小应用的文件夹，并取名，之后在里面添加相应的vue文件，目录格式如下。</p>
+<p><img src="http://blogimg.since1105.wang/2019_01_16_6.png" alt="1"></p>
+<p>这个文件夹作为多页下的一个小 <code>spa</code></p>
+<p>然后，将 <code>spa</code> 文件夹除去 <code>node_modules</code> 文件夹外，其他全部通过 <code>shift + ctrl + alt + x</code> 手动上传至服务器上。</p>
+<h3 id="4、配置-vue-conf-js-文件"><a href="#4、配置-vue-conf-js-文件" class="headerlink" title="4、配置 vue.conf.js 文件"></a>4、配置 <code>vue.conf.js</code> 文件</h3><p>面对一个空文件，肯定是懵的。查查各种资料，看看高人的代码后，下面是我的配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> glob = <span class="built_in">require</span>(<span class="string">'glob'</span>)</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">var</span> root = path.dirname(__dirname)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pagesPath = path.resolve(__dirname, <span class="string">'./src/pages'</span>)</span><br><span class="line"><span class="keyword">var</span> searchPages = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pages = &#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> entryFiles = glob.sync(pagesPath + <span class="string">'/*/entry.js'</span>)</span><br><span class="line">  entryFiles.forEach(<span class="function">(<span class="params">filePath</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> filename = filePath.substring(filePath.lastIndexOf(<span class="string">'\/'</span>) + <span class="number">1</span>, filePath.length)</span><br><span class="line">    <span class="keyword">var</span> basename = path.basename(path.dirname(filePath))</span><br><span class="line">    <span class="keyword">var</span> htmlName = basename + <span class="string">'.html'</span></span><br><span class="line">    pages[basename] = &#123;</span><br><span class="line">      entry: filePath,</span><br><span class="line">      template: filePath.replace(filename, htmlName),</span><br><span class="line">      filename: htmlName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(pages)</span><br><span class="line">  <span class="keyword">return</span> pages</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> pages = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isProd = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> process.env.NODE_ENV === <span class="string">'production'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getBasePath = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> isProd() ? <span class="string">'/spa/'</span> : <span class="string">'/dev/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> devServer = &#123;</span><br><span class="line">  public: <span class="string">'www.since1105.wang:8080'</span>,</span><br><span class="line">  host: <span class="string">'0.0.0.0'</span>,</span><br><span class="line">  port: <span class="number">8080</span>,</span><br><span class="line">  compress: <span class="literal">true</span>,</span><br><span class="line">  publicPath: <span class="string">'/dev/'</span>,</span><br><span class="line">  disableHostCheck: <span class="literal">true</span>,</span><br><span class="line">  allowedHosts: [</span><br><span class="line">    <span class="string">'.abc.com'</span>,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  pages: <span class="built_in">Object</span>.assign(&#123;&#125;, pages, searchPages()),</span><br><span class="line">  baseUrl: getBasePath(),</span><br><span class="line">  outputDir: path.join(root, <span class="string">'templates'</span>, <span class="string">'spa'</span>),</span><br><span class="line">  assetsDir: <span class="string">'./static/'</span>,</span><br><span class="line">  devServer: devServer,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="解释如下："><a href="#解释如下：" class="headerlink" title="解释如下："></a>解释如下：</h4><p><a href="javascript:;" target="_blank" rel="noopener"><code>isProd</code></a> ：用于区分 开发环境 或是 生产环境</p>
+<p><a href="javascript:;" target="_blank" rel="noopener"><code>getBasePath</code></a> ：在开发环境下，页面根目录为 <code>dev</code> ，生产环境（打包编译后），根目录则为 <code>spa</code></p>
+<p><a href="javascript:;" target="_blank" rel="noopener"><code>devServer</code></a> ：开发服务器的设置，根据实际情况改为相应的参数</p>
+<p><a href="javascript:;" target="_blank" rel="noopener"><code>searchPages</code></a> ：玫举出在多页文件夹 <code>/spa/src/pages</code> 下符合条件的单页应用，并为每个单页配置一个pages的对象，用于打包项目时的配置使用。这是这个项目能多页的精华部分。</p>
+<p><a href="javascript:;" target="_blank" rel="noopener"><code>module.exports</code></a>：pages &gt; 单页的配置 、 baseUrl &gt; 区分开发和生产的根路径 、 outputDir &gt; 打包输出的文件位置 、 devServer &gt; 开发服务器的配置</p>
+<h3 id="5、配置模板"><a href="#5、配置模板" class="headerlink" title="5、配置模板"></a>5、配置模板</h3><p>在项目根下的 <code>templates</code> 文件夹下添加与单页小应用的相同名字的文件夹（最好相同吧，为了统一好管理记录）。并在文件夹下创建 <code>***.html</code> 文件。这对于项目来说也是一个关键点。这可以作为spa的模板文件，之后再讲这个。</p>
+<p>关于这个 <code>html</code> ：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>home<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在这里引用 vue 的开发环境的地址下的 js 文件 这是你能用模板做热更新的关键 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/dev/home.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上是模板的主要内容，其中 <code>script</code> 相当重要。当然了，不用这个模板也是可以的。运行完 <code>npm run serve</code> 之后，比如我的就可以直接访问 <code>http://域名/dev/home.html</code> 也是一样的。使用模板的话在我看来有以下这些好处：</p>
+<blockquote>
+<p>1、便于页面的管理 <br> 2、用模板继承可以随意在 django 的模板中拼接 vue 代码 <br> 3、可以在 django 的 views.py 中稍微配置一下就可以用线上域名随意切换热更和线上项目的，比如这样配置</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">djangoapp</span><span class="params">(request)</span>:</span></span><br><span class="line">    context = &#123;&#125;</span><br><span class="line">    dev = request.GET.get(<span class="string">'dev'</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> dev:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'spa/home.html'</span>, context=context)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'home/home.html'</span>, context=context)</span><br><span class="line"><span class="comment"># 根据自己的路由配置还原上述的代码</span></span><br><span class="line"><span class="comment"># 当线上路径为 http://你的域名/ 时，这时候你就可以用 http://你的域名/?dev=1 来访问热更新页面，很方便</span></span><br></pre></td></tr></table></figure>
+<h2 id="遇到的问题总结"><a href="#遇到的问题总结" class="headerlink" title="遇到的问题总结"></a>遇到的问题总结</h2><h3 id="一、vue-config-js-的配置"><a href="#一、vue-config-js-的配置" class="headerlink" title="一、vue.config.js 的配置"></a>一、<code>vue.config.js</code> 的配置</h3><p>在配置<code>vue.config.js</code> 文件时，由于 vue 基础没打好吧，之前上手撸代码的时候没有很扎实，所以对 开发环境 和 生产环境 的不够理解，所以导致了开发和生产的路径为同一个路径。导致了不管访问什么环境，静态文件的获取永远都是404。刚开始以为是 <code>nginx</code> 的配置问题。后来发现，问题似乎并没有这么简单。所以，在上面我就特别强调了一下 开发环境 和 生产环境 的问题。</p>
+<h3 id="二、nginx-的配置"><a href="#二、nginx-的配置" class="headerlink" title="二、nginx 的配置"></a>二、<code>nginx</code> 的配置</h3><p>下面贴一下 <code>nginx</code> 的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">upstream adjango_home &#123;</span><br><span class="line">    server 127.0.0.1:8000;</span><br><span class="line">&#125;</span><br><span class="line">upstream adjango_spa &#123;</span><br><span class="line">    server 127.0.0.1:8080;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    root /var/www/adjango;</span><br><span class="line"></span><br><span class="line">    server_name www.abc.com abc.com;</span><br><span class="line"></span><br><span class="line">    # Add index.php to the list if you are using PHP</span><br><span class="line">    index index.html index.htm ;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS,PATCH,PUT&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">        proxy_set_header HTTP_X_FORWARDED_PROTO https;</span><br><span class="line">        proxy_pass http://adjango_home;</span><br><span class="line">        client_max_body_size 2m;</span><br><span class="line">        include proxy_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /dev &#123;</span><br><span class="line">        proxy_set_header HTTP_X_FORWARDED_PROTO https;</span><br><span class="line">        proxy_pass http://adjango_spa;</span><br><span class="line">        client_max_body_size 2m;</span><br><span class="line">        include proxy_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /static/ &#123;</span><br><span class="line">        alias /var/www/adjango/static/;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /spa/static/css/ &#123;</span><br><span class="line">        alias /var/www/adjango/templates/spa/static/css/;</span><br><span class="line">    &#125;</span><br><span class="line">    location /spa/static/js/ &#123;</span><br><span class="line">        alias /var/www/adjango/templates/spa/static/js/;</span><br><span class="line">    &#125;</span><br><span class="line">    location /spa/static/img/ &#123;</span><br><span class="line">        alias /var/www/adjango/templates/spa/static/img/;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>差不多就这样吧，下次想起什么来再补充吧。。。。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、本机安装-node-和-vue-cli3"><span class="toc-text">1、本机安装 node 和 vue-cli3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、在项目中搭建-vue"><span class="toc-text">2、在项目中搭建 vue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、扩充项目目录"><span class="toc-text">3、扩充项目目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、配置-vue-conf-js-文件"><span class="toc-text">4、配置 vue.conf.js 文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解释如下："><span class="toc-text">解释如下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、配置模板"><span class="toc-text">5、配置模板</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题总结"><span class="toc-text">遇到的问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、vue-config-js-的配置"><span class="toc-text">一、vue.config.js 的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、nginx-的配置"><span class="toc-text">二、nginx 的配置</span></a></li></ol>
+  </li></div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2019-01-21-django_vue寻找最佳web搭档/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/工作总结/"><i class="fa fa-tags"></i>工作总结</a>
+     
+      <a href="/tags/python/"><i class="fa fa-tags"></i>python</a>
+     
+      <a href="/tags/Django/"><i class="fa fa-tags"></i>Django</a>
+     
+      <a href="/tags/vue/"><i class="fa fa-tags"></i>vue</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2019-01-22-日常工作小总结/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2019-01-03-开启Django之旅一/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>[Ubuntu]之怎么把我sublime“中文输入”都弄么了呢 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,Ubuntu,安装与配置,sublime,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-03-17
+    </span>
+    
+      <span>
+        | <a href="/categories/操作系统/"><i class="fa fa-bookmark"></i>操作系统</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    [Ubuntu]之怎么把我sublime“中文输入”都弄么了呢
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-03-17-00.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>​    对于编辑器，本人一直很喜欢sublime的风格，简介好看，想要装什么插件自己去找，而且插件安装也是相当的轻松简单。插件有关于代码补全的，有关于强化侧边栏的，有关于主题的。也就看你想要什么就在<strong>Package Control</strong>中搜索安装即可。</p>
+<h3 id="一、安装sublime-text-3"><a href="#一、安装sublime-text-3" class="headerlink" title="一、安装sublime text 3"></a>一、安装sublime text 3</h3><p>​    要用之前当然是安装软件了，ubuntu安装sublime的方式多种多样。这里提供一种最方便快捷的方式。</p>
+<p>​    终端依次输入以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:webupd8team/sublime-text-3</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install sublime-text-installer</span><br></pre></td></tr></table></figure>
+<p>​    由于安装的是正版的sublime，使用需要输入许可证方可使用。</p>
+<p>​    我提供一个许可证 <strong>2018-02-11-亲测可用-3156-3157版本均可</strong></p>
+<p>​    复制以下代码至输入框确定即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">----- BEGIN LICENSE -----</span><br><span class="line">eldon</span><br><span class="line">Single User License</span><br><span class="line">EA7E-1122628</span><br><span class="line">C0360740 20724B8A 30420C09 6D7E046F</span><br><span class="line">3F5D5FBB 17EF95DA 2BA7BB27 CCB14947</span><br><span class="line">27A316BE 8BCF4BC0 252FB8FF FD97DF71</span><br><span class="line">B11A1DA9 F7119CA0 31984BB9 7D71700C</span><br><span class="line">2C728BF8 B952E5F5 B941FF64 6D7979DA</span><br><span class="line">B8EB32F8 8D415F8E F16FE657 A35381CC</span><br><span class="line">290E2905 96E81236 63D2B06D E5F01A69</span><br><span class="line">84174B79 7C467714 641A9013 94CA7162</span><br><span class="line">------ END LICENSE ------</span><br></pre></td></tr></table></figure>
+<h3 id="二、解决问题"><a href="#二、解决问题" class="headerlink" title="二、解决问题"></a>二、解决问题</h3><p>​    安装完成后直接在app列表里找到图标并打开即可，然而，当你使用的时候就会发现，我们是避免不了的会使用到中文输入。这就是最坑爹的地方，ubuntu 版 sublime是不支持输入中文的。</p>
+<p>​    所以，我们就要找办法解决这一问题。</p>
+<p>​    大神们已经将解决方法的源代码传上了Github，我也将源代码备份在了我自己的仓库中。</p>
+<p><strong>1、</strong>首先下载源码到本地</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/xukimseven/sublime-text-imfix.git</span><br></pre></td></tr></table></figure>
+<p><strong>2、</strong>将<code>subl</code>移动到<code>/usr/bin/</code>，并且将<code>sublime-imfix.so</code>移动到<code>/opt/sublime_text/</code>（sublime的安装目录）<br>终端依次输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~/sublime-text-imfix</span><br><span class="line"></span><br><span class="line">sudo cp ./lib/libsublime-imfix.so /opt/sublime_text/</span><br><span class="line"></span><br><span class="line">sudo cp ./src/subl /usr/bin/</span><br></pre></td></tr></table></figure>
+<p><strong>3、</strong>直接输入以下命令试试能不能启动sublime，如果成功启动的话，应该就可以输入中文了。<br>终端输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LD_PRELOAD=./libsublime-imfix.so subl</span><br></pre></td></tr></table></figure>
+<p><strong>4、</strong>但是这样子只能用上述命令行启动才能输入中文，我们需要更简单的办法，将命令放在一个shell脚本，直接终端输入脚本名字打开。<br>新建文件，在文件中键入如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so subl</span><br></pre></td></tr></table></figure>
+<p>然后将文件另存为<code>sublime</code>（注意：没有后缀），并且放到<code>/home</code>文件夹。</p>
+<p><strong>5、</strong>至此，所有工作完成了。想要启动，直接终端输入：<code>bash ~/sublime</code>，就可以启动sublime，并且能够输入中文了，如下图。</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-17-1.png" alt="018-03-18-"></p>
+<p><strong>6、</strong>如果不需要输入中文，直接按以前的方式点击图标打开即可。建脚本文件的目的就是方便打开能输入中文的sublime。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、安装sublime-text-3"><span class="toc-text">一、安装sublime text 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、解决问题"><span class="toc-text">二、解决问题</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-03-17-[ubuntu]不定期更新的日常/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Ubuntu/"><i class="fa fa-tags"></i>Ubuntu</a>
+     
+      <a href="/tags/安装与配置/"><i class="fa fa-tags"></i>安装与配置</a>
+     
+      <a href="/tags/sublime/"><i class="fa fa-tags"></i>sublime</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-03-18-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-03-14-关于修改主题的总结/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

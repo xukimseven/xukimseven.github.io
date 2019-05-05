@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>前端自定义字体总结 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="前端,css,html,前端设计,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-03-05
+    </span>
+    
+      <span>
+        | <a href="/categories/前端/"><i class="fa fa-bookmark"></i>前端</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    前端自定义字体总结
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-03-05-00000.jpg);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>​    不论是网页还是其他的应用，在前端开发中往往会涉及到特殊字体的设置。仅仅只是用微软雅黑或者是宋体等等已经满足不了日常设计的需求了。所以使用特定的“font-family”在前端开发中有着一定的意义。</p>
+<p>​    本人在使用Github的博客时接触到了自定义好看的英文字体，并对此有一些总结。总结如下。</p>
+<h4 id="一、百度或google查找喜欢的字体"><a href="#一、百度或google查找喜欢的字体" class="headerlink" title="一、百度或google查找喜欢的字体"></a>一、百度或google查找喜欢的字体</h4><p>比如以下这个网站介绍了15款好看的英文字体，并且给出了字体的下载链接。</p>
+<p><a href="https://www.qianduanmei.com/15-Professional-New-Free-Fonts-for-Designers/" target="_blank" rel="noopener">15个专业级英文字体</a></p>
+<p>在下载之后得到字体的<strong>ttf</strong>或者<strong>otf</strong>文件。这是用于系统安装使用字体的文件。如果想要在本机系统环境使用这些字体，则只需双击安装即可。</p>
+<p>如果想要使用在页面前端开发中，还需要经过一些处理。</p>
+<h4 id="二、利用在线转换的网站，对ttf进行处理"><a href="#二、利用在线转换的网站，对ttf进行处理" class="headerlink" title="二、利用在线转换的网站，对ttf进行处理"></a>二、利用在线转换的网站，对ttf进行处理</h4><p>进入如下网站 <a href="http://www.freefontconverter.com/" target="_blank" rel="noopener">freefontconverter</a></p>
+<p>将之前下载的<strong>ttf</strong>或<strong>otf</strong>文件上传至网站后，点击<strong>font converter</strong>字样即可下载，得到几个额外文件。</p>
+<p>以 ffad_mator字体为例：</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-05-1.png" alt="1"></p>
+<p>点击上图“Select a font file to convert”上传字体ttf或otf文件，之后点击“Font Convrt”下载得到一个压缩包。</p>
+<p>解压获得如下文件</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-05-2.png" alt="2"></p>
+<h4 id="三、编写html与CSS文件"><a href="#三、编写html与CSS文件" class="headerlink" title="三、编写html与CSS文件"></a>三、编写html与CSS文件</h4><p>首先将解压获得的文件夹放置在fonts文件夹中，并创建想要文件，文件树状图如下。</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-05-3.png" alt="3"></p>
+<p>首先编写<strong>css</strong>文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ffad_matro字体  */</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'ffad_matroregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.eot'</span>); <span class="comment">/* IE9 Compat Modes */</span></span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),<span class="comment">/* Modern Browsers */</span></span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),<span class="comment">/* Safari, Android, iOS */</span></span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.svg#ffad_matroregular'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);<span class="comment">/* Legacy iOS */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后编写html文件，并关联二者</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>英文字体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/1.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"font-family: ffad_matroregular"</span>&gt;</span></span><br><span class="line">		ffad_matroregular</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，就可以在网页中显示出自定义英文字体了</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-05-4.png" alt="4"></p>
+<p>这就是网页中的相关显示了。</p>
+<hr>
+<p>推荐几个好看的英文字体。如要下载字体，欢迎到本人的<a href="https://github.com/xukimseven/myGitCloud/tree/master/fonts" target="_blank" rel="noopener">Github</a>进行下载使用。</p>
+<p>css源码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 英文字体 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Abys字体 （做标题不错，而且字母全是大写的）*/</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'abysregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/abys/abys-regular.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/abys/abys-regular.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ffad_matro字体 （潇洒的英文字体） */</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'ffad_matroregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.eot'</span>); <span class="comment">/* IE9 Compat Modes */</span></span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),<span class="comment">/* Modern Browsers */</span></span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),<span class="comment">/* Safari, Android, iOS */</span></span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/ffad_matro/ffad_matro-webfont.svg#ffad_matroregular'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);<span class="comment">/* Legacy iOS */</span></span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* fofermedium字体 （类似于漫画字体，字体小） */</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'fofermedium'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/fofer/fofer-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/fofer/fofer-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* love-trust字体  （和fofermedium字体很像）*/</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'love-trustregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/love-trust/love-trust.eot'</span>);</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/love-trust/love-trust.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/love-trust/love-trust.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/love-trust/love-trust.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/love-trust/love-trust.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/love-trust/love-trust.svg#ffad_matroregular'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* rockfireregular字体 （中规中矩） */</span></span><br><span class="line"> @<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'rockfireregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/rockfire/rockfire-regular-webfont.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/rockfire/rockfire-regular-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* wolf-in-the-city-light字体 （所谓的英文花体） */</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'wolf-in-the-city-lightregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/wolf-in-the-city-light/wolf-in-the-city-light.eot'</span>);</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/wolf-in-the-city-light/wolf-in-the-city-light.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/wolf-in-the-city-light/wolf-in-the-city-light.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/wolf-in-the-city-light/wolf-in-the-city-light.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/wolf-in-the-city-light/wolf-in-the-city-light.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/wolf-in-the-city-light/wolf-in-the-city-light.svg#ffad_matroregular'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* yellowtail字体  （另一种花体）*/</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'yellowtailregular'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/yellowtail/yellowtail-regular.eot'</span>);</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/yellowtail/yellowtail-regular.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/yellowtail/yellowtail-regular.woff2'</span>) <span class="built_in">format</span>(<span class="string">'woff2'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/yellowtail/yellowtail-regular.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/yellowtail/yellowtail-regular.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">'../fonts/yellowtail/yellowtail-regular.svg#ffad_matroregular'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>网页显示效果如下图：</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-05-5.png" alt="5"></p>
+<p>有的适合用于标题，有的适合用于正文，有的用于插图。看个人喜好，不喜勿喷。</p>
+<hr>
+<p>​    如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+<p>​    如需转载，请注明出处，谢谢。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、百度或google查找喜欢的字体"><span class="toc-text">一、百度或google查找喜欢的字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、利用在线转换的网站，对ttf进行处理"><span class="toc-text">二、利用在线转换的网站，对ttf进行处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、编写html与CSS文件"><span class="toc-text">三、编写html与CSS文件</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-03-05-前端自定义字体总结/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/css/"><i class="fa fa-tags"></i>css</a>
+     
+      <a href="/tags/html/"><i class="fa fa-tags"></i>html</a>
+     
+      <a href="/tags/前端设计/"><i class="fa fa-tags"></i>前端设计</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-03-06-AWS/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-02-18-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>[Ubuntu]之穿墙术 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,网络,Ubuntu,安装与配置,科学上网,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-02-18
+    </span>
+    
+      <span>
+        | <a href="/categories/操作系统/"><i class="fa fa-bookmark"></i>操作系统</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    [Ubuntu]之穿墙术
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-02-18-11.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>​    今天大年初三，趁着没出门拜年，把ubuntu的“穿墙术”给写一下。 ubuntu的FQ其实我早就想写了。可是碍于我觉得之前的FQ不太完美，所以依然在找更好的东西。早在，大一玩虚拟机的时候我就有在ubuntu里FQ的体验。那是个VPN开放的年代，市场上免费的VPN软件还是很多的，比如我用的GreenVPN，完美满足各种平台的FQ，包括ubuntu的点对点PPTP。然而，当VPN软件一一被禁之后，我就开始寻找其他的方式。</p>
+<p>​    当我自己搭建了SSR之后，我觉得，我的ubuntu 穿过这墙有救了。</p>
+<p>​    其中要非常感谢另一个博主——<a href="https://www.djangoz.com/" target="_blank" rel="noopener">Django</a>。我一直再找ubuntu上满足SSR协议的客户端。之前FQ我只能用满足SS协议的shadowsocks-qt5，虽然他有图形界面，使用操作方便。可是SS实在是不稳定，我自己的服务器，搭好的SS始终是掉包情况严重根本不能用。</p>
+<p>​    所以，今天就来写一写ubuntu下使用ShadowsocksR客户端+ SwitchyOmega ( <a href="https://pan.baidu.com/s/1o9RTiI2" target="_blank" rel="noopener">密码：g7b9</a> )Chrome插件（火狐在附加组件中搜名字），实现FQ。</p>
+<h3 id="一、安装ShadowsocksR客户端以及相关配置"><a href="#一、安装ShadowsocksR客户端以及相关配置" class="headerlink" title="一、安装ShadowsocksR客户端以及相关配置"></a>一、安装ShadowsocksR客户端以及相关配置</h3><h4 id="1、给Ubuntu安装Git"><a href="#1、给Ubuntu安装Git" class="headerlink" title="1、给Ubuntu安装Git"></a>1、给Ubuntu安装Git</h4><p>终端中输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<p>安装后输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p>这是查看git的版本，也是用来查看git是否安装成功</p>
+<p>正常可以显示git版本号</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-1.png" alt="2018-02-18-1"></p>
+<h4 id="2、安装ShadowsocksR客户端"><a href="#2、安装ShadowsocksR客户端" class="headerlink" title="2、安装ShadowsocksR客户端"></a>2、安装ShadowsocksR客户端</h4><p>参考链接 <a href="https://www.djangoz.com/2017/08/16/linux_setup_ssr/" target="_blank" rel="noopener">Django’s blog</a></p>
+<p>在终端中逐条输入下方命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.djangoz.com/ssr</span><br><span class="line">sudo mv ssr /usr/local/bin</span><br><span class="line">sudo chmod 766 /usr/local/bin/ssr</span><br><span class="line">ssr install</span><br><span class="line">ssr config</span><br></pre></td></tr></table></figure>
+<h4 id="3、SSR客户端配置"><a href="#3、SSR客户端配置" class="headerlink" title="3、SSR客户端配置"></a>3、SSR客户端配置</h4><p>输入 ssr config 之后，就使用了vim打开了SSR的配置文件。</p>
+<p>进入vim界面之后就可以看见下方的配置文件内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "server": "0.0.0.0",</span><br><span class="line">    "server_ipv6": "::",</span><br><span class="line">    "server_port": 8388,</span><br><span class="line">    "local_address": "127.0.0.1",</span><br><span class="line">    "local_port": 1080,</span><br><span class="line"></span><br><span class="line">    "password": "m",</span><br><span class="line">    "method": "aes-128-ctr",</span><br><span class="line">    "protocol": "auth_aes128_md5",</span><br><span class="line">    "protocol_param": "",</span><br><span class="line">    "obfs": "tls1.2_ticket_auth_compatible",</span><br><span class="line">    "obfs_param": "",</span><br><span class="line">    "speed_limit_per_con": 0,</span><br><span class="line">    "speed_limit_per_user": 0,</span><br><span class="line"></span><br><span class="line">    "additional_ports" : &#123;&#125;, // only works under multi-user mode</span><br><span class="line">    "additional_ports_only" : false, // only works under multi-user mode</span><br><span class="line">    "timeout": 120,</span><br><span class="line">    "udp_timeout": 60,</span><br><span class="line">    "dns_ipv6": false,</span><br><span class="line">    "connect_verbose_info": 0,</span><br><span class="line">    "redirect": "",</span><br><span class="line">    "fast_open": false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要更改配置中的下面的这几个选项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"server": "0.0.0.0",                          //服务器地址</span><br><span class="line">"server_port":8388,                           //端口</span><br><span class="line">"password":"m",                               //密码</span><br><span class="line">"method":"aes-128-ctr",                       //加密方式</span><br><span class="line">"protocol":"auth_aes128_md5",                 //协议插件</span><br><span class="line">"obfs":"tls1.2_ticket_auth_compatible",       //混淆插件</span><br></pre></td></tr></table></figure>
+<p>将上方的6个选项改为自己配置的SSR的选项，查看自己服务器的SSR配置，参考我的另一篇博文—— <a href="http://xukimseven.github.io/2018/01/22/SSR%E7%9A%84%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener">SSR的搭建</a> 。</p>
+<p>如果你的SSR的服务来自服务商，即你的是购买的SSR，那么，你就将服务商的配置添加到上方的配置文件中。</p>
+<p>此时，ubuntu的SSR客户端就算是配置好了。</p>
+<h4 id="4、为方便，讲SSR加入开机启动"><a href="#4、为方便，讲SSR加入开机启动" class="headerlink" title="4、为方便，讲SSR加入开机启动"></a>4、为方便，讲SSR加入开机启动</h4><p>终端输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+<p>在里面添加要运行的命令于文件中部</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh -e</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> rc.local</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> This script is executed at the end of each multiuser runlevel.</span><br><span class="line"><span class="meta">#</span> Make sure that the script will "exit 0" on success or any other</span><br><span class="line"><span class="meta">#</span> value on error.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> In order to enable or disable this script just change the execution</span><br><span class="line"><span class="meta">#</span> bits.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> By default this script does nothing.</span><br><span class="line"></span><br><span class="line">sudo ssr start</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+<p>vim的操作</p>
+<p>（1）打开文件后，点击 键盘 ‘ i ’ ，即可进行输入</p>
+<p>（2）保存文件。首先点击键盘，‘ esc ’ 退出输入模式，再次输入 ‘ :wq ’ ，即可退出并保存。</p>
+<p>（3）不保存退出。首先点击键盘，‘ esc ’ 退出输入模式，再次输入 ‘ :q! ’ ，即可不保存退出。</p>
+<p>这样的话，开机就可以自动启动SSR。</p>
+<p>如果想要自己手动开启或停止SSR的话，只需在终端输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ssr start     //开启SSR</span><br><span class="line">sudo ssr stop      //停止SSR</span><br></pre></td></tr></table></figure>
+<hr>
+<p>然而，在linux下，配置好SSR之后，依然是不能在浏览器里访问被墙的网站。这还需要使用浏览器的代理插件来实现FQ操作。</p>
+<h3 id="二、安装-SwitchyOmega以及相关配置"><a href="#二、安装-SwitchyOmega以及相关配置" class="headerlink" title="二、安装 SwitchyOmega以及相关配置"></a>二、安装 SwitchyOmega以及相关配置</h3><h4 id="1、下载、安装-SwitchyOmega"><a href="#1、下载、安装-SwitchyOmega" class="headerlink" title="1、下载、安装 SwitchyOmega"></a>1、下载、安装 SwitchyOmega</h4><p>SwitchyOmega ( <a href="https://pan.baidu.com/s/1o9RTiI2" target="_blank" rel="noopener">密码：g7b9</a> )Chrome插件（火狐在附加组件中搜名字）</p>
+<p>下载获得 .crx 文件。</p>
+<p>打开chrome，进入拓展程序</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-3.png" alt="2018-02-18-3"></p>
+<p>或在浏览器链接框中输入   chrome://extensions/</p>
+<p>将  .crx 文件直接拖动到浏览器中，即可安装 SwitchyOmega 到chrome中。</p>
+<p>关于 <strong>火狐（Firefox）</strong>浏览器只需在附加组件中搜 SwitchyOmega 即可。</p>
+<h4 id="2、配置-SwitchyOmega"><a href="#2、配置-SwitchyOmega" class="headerlink" title="2、配置 SwitchyOmega"></a>2、配置 SwitchyOmega</h4><p><img src="http://blogimg.since1105.wang/2018-02-18-4.png" alt="2018-02-18-4"></p>
+<p>在拓展程序中找到SwitchyOmega 后，点击选项，即可进入SwitchyOmega 的配置界面。</p>
+<p>在配置界面左侧找到新建情景模式，点击进入。</p>
+<p><strong>（1）新建情景模式</strong></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-5.png" alt="2018-02-18-5"></p>
+<p>给情景模式随意取名，创建。<img src="http://blogimg.since1105.wang/2018-02-18-6.png" alt="2018-02-18-6"></p>
+<p>创建之后，按下图配置即可</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-7.png" alt="2018-02-18-7"></p>
+<p>代理协议选择 <strong>SOCKS5</strong></p>
+<p>代理服务器为本地服务器 填写 <strong>127.0.0.1</strong></p>
+<p>端口默认 <strong>1080</strong> 不变 这个端口号取决于你的SSR配置，默认即可，推荐SSR也不要改，以免与其他进程冲突。</p>
+<p>填写好之后，点击左侧 <strong>绿色</strong> 的应用选项，即可保存配置。</p>
+<p><strong>（2）设置自动切换</strong></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-8.png" alt="2018-02-18-8"></p>
+<p>点击左侧 auto switch 进入自动切换配置界面</p>
+<p>按照下图的配置</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-9.png" alt="2018-02-18-9"></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-10.png" alt="2018-02-18-10"></p>
+<p>列表网址为</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</span></span><br></pre></td></tr></table></figure>
+<p>添加之后点击 立即更新情景模式</p>
+<p>即可。</p>
+<p>同样，如果左侧的应用选项为绿色，点击即可，如果为灰色，就不用管了。</p>
+<hr>
+<p>最后，这就算是配置好了</p>
+<h4 id="关于使用"><a href="#关于使用" class="headerlink" title="关于使用"></a>关于使用</h4><p>在浏览器上方项目栏中有 SwitchyOmega 是图标，点击选择 auto switch，即可自由穿梭墙内墙外了。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-18-11.png" alt="2018-02-18-11"></p>
+<hr>
+<p>​    如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+<p>​    如需转载，请注明出处，谢谢。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、安装ShadowsocksR客户端以及相关配置"><span class="toc-text">一、安装ShadowsocksR客户端以及相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、给Ubuntu安装Git"><span class="toc-text">1、给Ubuntu安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、安装ShadowsocksR客户端"><span class="toc-text">2、安装ShadowsocksR客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、SSR客户端配置"><span class="toc-text">3、SSR客户端配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、为方便，讲SSR加入开机启动"><span class="toc-text">4、为方便，讲SSR加入开机启动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、安装-SwitchyOmega以及相关配置"><span class="toc-text">二、安装 SwitchyOmega以及相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、下载、安装-SwitchyOmega"><span class="toc-text">1、下载、安装 SwitchyOmega</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、配置-SwitchyOmega"><span class="toc-text">2、配置 SwitchyOmega</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于使用"><span class="toc-text">关于使用</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-02-18-[ubuntu]不定期更新的日常/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/网络/"><i class="fa fa-tags"></i>网络</a>
+     
+      <a href="/tags/Ubuntu/"><i class="fa fa-tags"></i>Ubuntu</a>
+     
+      <a href="/tags/安装与配置/"><i class="fa fa-tags"></i>安装与配置</a>
+     
+      <a href="/tags/科学上网/"><i class="fa fa-tags"></i>科学上网</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-03-05-前端自定义字体总结/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-02-15-春节快乐/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

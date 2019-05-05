@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>小程序审核注意点 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="微信小程序,css,html,前端设计,js,微信小程序,工作总结,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-12-02
+    </span>
+    
+      <span>
+        | <a href="/categories/微信小程序/"><i class="fa fa-bookmark"></i>微信小程序</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    小程序审核注意点
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/testGif.gif);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <h1 id="小程序审核注意点"><a href="#小程序审核注意点" class="headerlink" title="小程序审核注意点"></a>小程序审核注意点</h1><p>​    最近有点恍惚，一不小心又是几个月过去了。我徐汉三又回来了。</p>
+<p>​    2018-12-02，今天距离我离开上一家公司有加入另一个团队也是过去了一个多月了。10月16号正式离职上家公司，10月22号正式以实习生身份加入“XX”大家庭。在XX事业部担任前端开发的职务。</p>
+<p>​    一个多月以来，在被大佬的碾压与“嘲讽”下，多多少少是持续进步的。在这里，我是真的明白了，别人比你优秀，还比你努力。。。。我的昊哥啊，你走路是真的快，我跟的确实是费劲的。不过我会努力不掉队的。。。</p>
+<p>​    在公司里的第一个任务就是完成小程序部分的开发。在开发中，我感觉到小程序的审核是越来越繁琐麻烦了。各种的挑刺找问题。审核一次大半天出个结果，往往还不通过。下面是最近审核和开发中踩的坑。</p>
+<h2 id="（一）关于审核"><a href="#（一）关于审核" class="headerlink" title="（一）关于审核"></a>（一）关于审核</h2><blockquote>
+<p>1:服务类目”教育-在线教育_”与你提交代码审核时设置的功能页面内容不一致:<br>(1):你好，你的小程序涉及直播，请补充选择社交-直播类目，或自查代码，确保包括前端展示、小程序代码等整体均移除相关内容，再提交代码审核。</p>
+<p>——2018-10-30 （由于缺少《网络文化经营许可证》）</p>
+<p>1:小程序内容不符合规则:<br>(1):请在小程序服务页面上架正式（非测试）内容或商品后重新提交审核。（测试环境wifi，Andriod 8.0.0，微信6.7.2，Honor 8 Lite）</p>
+<p>——2018-11-07 （由于页面显示的数据均为测试数据，所以不过审）</p>
+<p>1:小程序内容不符合规则:<br>(1):小程序页面内容涉及提供【电子课程】等虚拟产品购买，并可在线完成支付，属于虚拟产品购买，iOS系统暂不支持。</p>
+<p>——2018-11-08 （由于iOS上架虚拟产品）</p>
+<p>1:小程序内容不符合规则:<br>(1):小程序页面内容涉及：购买虚拟产品且含价格展示，ios系统暂不支持，请移除：页面虚拟产品购买及价格展示板块内容后，再提交代码审核。</p>
+<p>——2018-11-08 （由于iOS上架虚拟产品）</p>
+<p>1:小程序内容不符合规则:<br>(1):小程序页面内容涉及提供：【付费题库】虚拟产品内容，并可引导至“公众号”完成支付，属于虚拟产品购买，ios系统暂不支持，请移除虚拟商品购买功能后，再提交代码审核。</p>
+<p>——2018-11-08 （由于iOS上架虚拟产品，且引导至公众号，小程序这也是不允许的）</p>
+<p>1:小程序内容不符合规则:<br>(1):小程序页面内容提示：iOS功能暂不支持，可修改文案为：“由于相关规范，iOS功能暂不可用”。</p>
+<p>——2018-11-09 （由于iOS端的说明文案不好，需要改成他们提供的，所以不通过。。。。）</p>
+<p>PS：除去上述问题，小程序同样对分享很敏感，虽然有分享功能，但是安卓端存在拿不到分享成功失败的回调，而且官方不提倡过分的分享。</p>
+</blockquote>
+<p>​    所以，就上面出现的各种问题，我们想了用后台开关的操作方式来解决这个问题。</p>
+<h3 id="一、通过后台开关打开和关闭小程序的ios支付按钮"><a href="#一、通过后台开关打开和关闭小程序的ios支付按钮" class="headerlink" title="一、通过后台开关打开和关闭小程序的ios支付按钮"></a>一、通过后台开关打开和关闭小程序的ios支付按钮</h3><p>后台提供字段，如 <code>show_ios: true || false</code></p>
+<p>​    前端小程序请求拿到课程数据针对每个课程的数据中，通过对设备和数据中 <code>show_ios</code> 的双重验证来对ios端显示和关闭ios购买按钮以及ios端的价格显示与关闭进行操作。</p>
+<p>​    通过这种方式就解决的小程序ios断不可支付的问题。</p>
+<p>​    在审核的时候直接关闭 <code>show_ios</code> 的开关，这时候审核员看到的界面显示为—— “由于相关规范，iOS功能暂不可用”。这里的文案同样需要注意，因为文案不规范也被退审过。详情见上方 <code>2018-11-09</code>。</p>
+<p>​    在过审后，打开 <code>show_ios</code> 开关，此时就可以正常的进行ios端购买课程的服务了。</p>
+<p>​    需要注意的是，这个设定最好只对 ios 端起作用。在安卓上，是无论开关的打开或关闭，都可进行购买操作。所以，在小程序中需要验证设备的系统型号，是安卓 或 ios。</p>
+<h3 id="二、通过后台开关打开或关闭小程序分享引导"><a href="#二、通过后台开关打开或关闭小程序分享引导" class="headerlink" title="二、通过后台开关打开或关闭小程序分享引导"></a>二、通过后台开关打开或关闭小程序分享引导</h3><p>后端提供字段，如 <code>show_share: true ||false</code></p>
+<p>​    前端拿到字段同样进行判断是否显示分享页面或分享按钮。</p>
+<p>​    该开关对ios和安卓应该都起作用。</p>
+<h3 id="不多讲了"><a href="#不多讲了" class="headerlink" title="不多讲了"></a>不多讲了</h3><p>​    反正我现在是真的了解到了牛人的开发方式。就是尽量将前端作为一个渲染引擎。将所有的页面显示后由后端控制，将前端视为模块，无需再次进行前端开发，什么时间段前端拿到什么数据显示什么模块。这是我现在看来最佳的开发方式了。可能是我讲的比较俗气，但这是我的最直观感受。</p>
+<h2 id="（二）关于开发"><a href="#（二）关于开发" class="headerlink" title="（二）关于开发"></a>（二）关于开发</h2><h3 id="这里要重点讲一讲——组件的生命周期"><a href="#这里要重点讲一讲——组件的生命周期" class="headerlink" title="这里要重点讲一讲——组件的生命周期"></a>这里要重点讲一讲——组件的生命周期</h3><p>​    官方文档：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/lifetimes.html" target="_blank" rel="noopener">点击查看</a></p>
+<blockquote>
+<ul>
+<li>组件实例刚刚被创建好时， <code>created</code> 生命周期被触发。此时，组件数据 <code>this.data</code> 就是在 <code>Component</code> 构造器中定义的数据 <code>data</code> 。 <strong>此时还不能调用 setData 。</strong> 通常情况下，这个生命周期只应该用于给组件 <code>this</code> 添加一些自定义属性字段。</li>
+<li>在组件完全初始化完毕、进入页面节点树后， <code>attached</code> 生命周期被触发。此时， <code>this.data</code> 已被初始化为组件的当前值。这个生命周期很有用，绝大多数初始化工作可以在这个时机进行。</li>
+<li>在组件离开页面节点树后， <code>detached</code> 生命周期被触发。退出一个页面时，如果组件还在页面节点树中，则 <code>detached</code> 会被触发。</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>生命周期</th>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>created</td>
+<td>无</td>
+<td>在组件实例刚刚被创建时执行</td>
+</tr>
+<tr>
+<td>attached</td>
+<td>无</td>
+<td>在组件实例进入页面节点树时执行</td>
+</tr>
+<tr>
+<td>ready</td>
+<td>无</td>
+<td>在组件在视图层布局完成后执行</td>
+</tr>
+<tr>
+<td>moved</td>
+<td>无</td>
+<td>在组件实例被移动到节点树另一个位置时执行</td>
+</tr>
+<tr>
+<td>detached</td>
+<td>无</td>
+<td>在组件实例被从页面节点树移除时执行</td>
+</tr>
+<tr>
+<td>error</td>
+<td><code>Object Error</code></td>
+<td>每当组件方法抛出错误时执行</td>
+</tr>
+</tbody>
+</table>
+<p>​    在开发中发现组件的生命周期比调用者的生命周期要更早的进行。就是说，<code>created</code>和<code>attached</code>在进入页面后最先执行，这是要比也调用者的 <code>onload</code> 要更早的执行的。在开发中，这是个巨坑啊。当初文档看的不清，让我掉进了坑里，让组件有了自己的‘灵魂’和‘大脑’。</p>
+<p>​    解决办法：用 <code>ready</code>取代 <code>created</code>和<code>attached</code> 或者 在父级中调用组件的方法，以此将组件 ‘无脑化’，任凭父级调用。</p>
+<hr>
+<p>​    最近睡眠一直不好，下了个蜗牛睡眠，睡眠年龄平均都在50岁左右吧。一个软件把我的一个妙龄青年看的这么老，好气啊。</p>
+<p>​    以后啊还是要好好睡觉，也要好好记录学习的问题和解决方案，不然我真是觉得我的进步太慢的。。。。我好气我自己啊。。。。</p>
+<hr>
+<p>​    下周，开题答辩，好好写开题论文去了。。。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小程序审核注意点"><span class="toc-text">小程序审核注意点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）关于审核"><span class="toc-text">（一）关于审核</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、通过后台开关打开和关闭小程序的ios支付按钮"><span class="toc-text">一、通过后台开关打开和关闭小程序的ios支付按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、通过后台开关打开或关闭小程序分享引导"><span class="toc-text">二、通过后台开关打开或关闭小程序分享引导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不多讲了"><span class="toc-text">不多讲了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）关于开发"><span class="toc-text">（二）关于开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#这里要重点讲一讲——组件的生命周期"><span class="toc-text">这里要重点讲一讲——组件的生命周期</span></a></li></ol></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-12-02-小程序审核申请注意点/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/css/"><i class="fa fa-tags"></i>css</a>
+     
+      <a href="/tags/html/"><i class="fa fa-tags"></i>html</a>
+     
+      <a href="/tags/前端设计/"><i class="fa fa-tags"></i>前端设计</a>
+     
+      <a href="/tags/js/"><i class="fa fa-tags"></i>js</a>
+     
+      <a href="/tags/微信小程序/"><i class="fa fa-tags"></i>微信小程序</a>
+     
+      <a href="/tags/工作总结/"><i class="fa fa-tags"></i>工作总结</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2019-01-03-开启Django之旅一/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-05-30-HardCandy-Jekyll/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>[Ubuntu]之安装双系统 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,Ubuntu,安装与配置,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-02-12
+    </span>
+    
+      <span>
+        | <a href="/categories/操作系统/"><i class="fa fa-bookmark"></i>操作系统</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    [Ubuntu]之安装双系统
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-02-12-4.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>当前时间，北京时间 2018年2月12日22点，事情发生在2016年4月份，这是一篇迟到的Ubuntu更新。</p>
+<h3 id="2018-02-12-Ubuntu的安装"><a href="#2018-02-12-Ubuntu的安装" class="headerlink" title="2018-02-12 Ubuntu的安装"></a>2018-02-12 Ubuntu的安装</h3><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>​    本人是一名计算机专业的大三学生，在校学习了快3年了，感觉专业课程很少能让我提起兴趣，反倒是和计算机搭边的，但又不太像是一项工作技能的东西，时常可以让我精神抖擞，可以不间断捣鼓很久。比如说捣鼓这个Github的博客，选择Jekyll还是Hexo我就会花不少时间。又当我选择方便上手的Jekyll后，又开始选择各种博客主题。当敲定博客主题后，又为了将博客主题改为自己喜欢的颜色等。。。这些无聊操作我可以钻在里面好几天。又比如捣鼓我喜欢的操作系统。</p>
+<p>​    刚开始之所以接触各式各样的操作系统，得益于在大一时了解到的虚拟机Vmware。当时我就觉得，这东西也太牛了，可以让我在自己电脑里再开好几个不同的系统，这对于我这个刚接触计算机专业的“小学生”来说是很“震撼”的。</p>
+<p>​    刚开始，我可以在我的4G运存小笔记本上开着win10（本机）、win8-win7（Vmare虚拟机）、安卓4.0（蓝叠安卓模拟器）这四个系统，然后将它们放在四个win10的桌面里，再然后用四指滑动触摸板切换桌面的方式假装切换系统，再再然后拍下视频发给我姐看/捂脸笑哭/。现在这个视频还在我百度云的某个角落里。</p>
+<p>​    后来不仅是这些，我还耗了好几天研究装黑苹果，在Vmare里成功实现，除了太卡，几乎什么都可以做。但就是因为太卡而几乎什么事情都不能做。好矛盾啊。。。</p>
+<p>​    这时，大概大一的第一个学期已经过了。我还没有真真的接触Linux。</p>
+<p>​    但是当我’真正‘的接触Linux后，我开始’真正‘的一发不可收拾了。</p>
+<p>​    我开始在Vmware里装各种发行版的Linux。Debian、Ubuntu、CentOS、Gentoo、Fedora、红帽等。他们不仅占用资源少，而且可自定义的自由度高，而且的而且他都是免费的。可是开源精神，我想我这种人大概很难做到这种开源吧。这大概就是我们东方人的小陋习，自己辛苦做出来的东西不太愿意与他人分享。所以我还是很佩服Github里的大神们的。</p>
+<p>​    最后用了很久的Linux虚拟机后，我选择突破一把，不再拘束在虚拟机范畴，而是选择一个喜欢的发行版，来一个说开始就开始的Linux+Windows双系统。这时，我选择了既好看，软件源有多的Ubuntu。​</p>
+<h3 id="安装Ubuntu-Windows双系统"><a href="#安装Ubuntu-Windows双系统" class="headerlink" title="安装Ubuntu+Windows双系统"></a>安装Ubuntu+Windows双系统</h3><p>​    2016年4月份，正值 Ubuntu16.04 LTS（长期支持版）的发布，我就决定用当时最新的Ubuntu作为材料。</p>
+<h4 id="一、准备："><a href="#一、准备：" class="headerlink" title="一、准备："></a>一、准备：</h4><blockquote>
+<p>查看电脑主板是否支持UEFI</p>
+<p>镜像文件：<a href="https://www.ubuntu.com/download/desktop/contribute?version=16.04.3&amp;architecture=amd64" target="_blank" rel="noopener">Ubuntu 16.04 LTS amd64</a></p>
+<p>U盘启动制作器：<a href="https://cn.ultraiso.net/" target="_blank" rel="noopener">软碟通</a></p>
+<p>一个储存空间大于2G的U盘，且U盘中没有重要文件（因为制作启动器时必须要格式化U盘）</p>
+<p>电脑中存在大于10G的可用空间</p>
+</blockquote>
+<p>查看主板是否支持UEFI：</p>
+<p>1、按下win+r打开运行，输入msinfo32，确定，打开系统信息；</p>
+<p>2、查看BIOS模式是否为UEFI。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-1.png" alt="2018-02-12-1"></p>
+<p><strong>注意：如果BIOS模式为传统，而不是UEFI的话，那么这台电脑将于ubuntu双系统无缘。</strong></p>
+<h4 id="二、用软碟通打开Ubuntu镜像文件（iso文件）"><a href="#二、用软碟通打开Ubuntu镜像文件（iso文件）" class="headerlink" title="二、用软碟通打开Ubuntu镜像文件（iso文件）"></a>二、用软碟通打开Ubuntu镜像文件（iso文件）</h4><p>​    插上U盘，在软碟通中选择文件打开ios后选择写入镜像文件后，等待数分钟即可完成启动盘的制作。</p>
+<h4 id="三、打开windows磁盘管理，给ubuntu分配空间"><a href="#三、打开windows磁盘管理，给ubuntu分配空间" class="headerlink" title="三、打开windows磁盘管理，给ubuntu分配空间"></a>三、打开windows磁盘管理，给ubuntu分配空间</h4><p>​    在磁盘管理中分配出至少10G的未使用空间，必须是<strong>未使用</strong>的，<strong>而不是某个“没有使用”的e盘或者f盘</strong>。这是不同的概念。</p>
+<p>​    不懂自行百度。</p>
+<h4 id="四、修改BIOS以U盘为第一启动项"><a href="#四、修改BIOS以U盘为第一启动项" class="headerlink" title="四、修改BIOS以U盘为第一启动项"></a>四、修改BIOS以U盘为第一启动项</h4><p>在BOOT页面将第一启动改为UEFI开头的选项</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-2.png" alt="2018-02-12-2"></p>
+<h4 id="五、保存BIOS的更改并重启进入U盘启动选项，选择第一个即可进入图形安装界面"><a href="#五、保存BIOS的更改并重启进入U盘启动选项，选择第一个即可进入图形安装界面" class="headerlink" title="五、保存BIOS的更改并重启进入U盘启动选项，选择第一个即可进入图形安装界面"></a>五、保存BIOS的更改并重启进入U盘启动选项，选择第一个即可进入图形安装界面</h4><p><img src="http://blogimg.since1105.wang/2018-02-12-3.png" alt="2018-02-12-3"></p>
+<h4 id="六、安装ubuntu"><a href="#六、安装ubuntu" class="headerlink" title="六、安装ubuntu"></a>六、安装ubuntu</h4><p>1、在桌面选择安装，语言选择中文（滚轮滚到底）</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-4.png" alt="2018-02-12-4"></p>
+<p>2、选择不连接网络以节约安装的时间</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-5.png" alt="2018-02-12-5"></p>
+<p>3、按提示选择是否安装第三方图形、播放等东西，那就选上好了。</p>
+<p>4、选择最后一个选项，其他方式，来自主分配安装位置。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-6.png" alt="2018-02-12-6"></p>
+<p>5、这是取决于是否安装成功的关键一步，分区</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-7.png" alt="2018-02-12-7"></p>
+<p>​    (1)首先，双击空闲分区，分配大约100 – 300MB， 将这个分区用作『EFI引导分区』。确定后，列表下方的boot loader安装目录选择为此分区！</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-8.png" alt="2018-02-12-8"></p>
+<p>​</p>
+<p>​    (2)双击空闲空间， 分大约与本机内存相等或内存的两倍的空间，用作swap area(交换空间）。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-9.png" alt="2018-02-12-9"></p>
+<p>​    (3)将剩余的空闲空间全部用作Ext4日志文件系统， 挂载点选“/”，此分区即为Ubuntu系统所在的分区。注意选择空闲分区，切忌安装在windows的分区。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-10.png" alt="2018-02-12-10"></p>
+<p>​</p>
+<p>​    (4)选择引导目录。将分区表格下面的引导目录选至刚才所分的efi分区，注意分区编号不要弄错。无须担心误操作，若操作由误只须点击右边的Revert恢复到原来状态即可。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-11.png" alt="2018-02-12-11"></p>
+<p>​    (5)这时，已经完成分区，点击确定后进入选择时区，选择完时区后为ubuntu设置计算机名称，用户名称，用户密码等信息，之后等待系统安装完成即可。</p>
+<h4 id="七、安装完成后"><a href="#七、安装完成后" class="headerlink" title="七、安装完成后"></a>七、安装完成后</h4><p>​    安装完成后，重启计算机，进入UEFI（BIOS），将Ubuntu置为第一启动项，保存退出即可畅快得使用Ubuntu+Windows双系统了。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-12.png" alt="2018-02-12-12"></p>
+<hr>
+<p><img src="http://blogimg.since1105.wang/2018-02-12-13.png" alt="2018-02-12-13"></p>
+<hr>
+<p>​    如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+<p>​    如需转载，请注明出处，谢谢。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2018-02-12-Ubuntu的安装"><span class="toc-text">2018-02-12 Ubuntu的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Ubuntu-Windows双系统"><span class="toc-text">安装Ubuntu+Windows双系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、准备："><span class="toc-text">一、准备：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、用软碟通打开Ubuntu镜像文件（iso文件）"><span class="toc-text">二、用软碟通打开Ubuntu镜像文件（iso文件）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、打开windows磁盘管理，给ubuntu分配空间"><span class="toc-text">三、打开windows磁盘管理，给ubuntu分配空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、修改BIOS以U盘为第一启动项"><span class="toc-text">四、修改BIOS以U盘为第一启动项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、保存BIOS的更改并重启进入U盘启动选项，选择第一个即可进入图形安装界面"><span class="toc-text">五、保存BIOS的更改并重启进入U盘启动选项，选择第一个即可进入图形安装界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、安装ubuntu"><span class="toc-text">六、安装ubuntu</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、安装完成后"><span class="toc-text">七、安装完成后</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-02-12-[ubuntu]不定期更新的日常/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Ubuntu/"><i class="fa fa-tags"></i>Ubuntu</a>
+     
+      <a href="/tags/安装与配置/"><i class="fa fa-tags"></i>安装与配置</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-02-13-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-01-25-夸夸AlphaRacks/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

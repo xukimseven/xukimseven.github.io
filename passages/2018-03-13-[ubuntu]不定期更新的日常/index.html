@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>[ubuntu]之我连“迅雷”都不放过 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,Ubuntu,安装与配置,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-03-13
+    </span>
+    
+      <span>
+        | <a href="/categories/操作系统/"><i class="fa fa-bookmark"></i>操作系统</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    [ubuntu]之我连“迅雷”都不放过
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-03-13-1.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>​    学业繁忙，话不多说，今天讲讲在ubuntu里使用迅雷的办法。</p>
+<p>​    关于迅雷，我想大家应该都不陌生。这简直就是神器一枚，文件的下载速度相当可观。一直以来都是被国人所常用的下载软件。也是在快播停用之后，所被大家津津乐道的看片神器（话题敏感，不展开讲述）。</p>
+<p>​    然而，迅雷支持的操作系统有限，据我了解仅支持windows、安卓和ios。由于迅雷涉及了一些敏感的领域，所以在苹果的App Store中已经下架了。关于ios的使用方法，见本文最下方。</p>
+<p>​    所以，在Linux下，包括ubuntu是没办法直接下载和使用到官方版的迅雷的。然而，中国大神遍地，早在几年前就有人做出来迅雷的ubuntu版，用的是原生迅雷。由于配置并不简单，且操作略显繁琐，则本人并没有用这个版本的迅雷，而是通过不懈的探索，发现了一个在我看来更好的方法。</p>
+<p>​    那就是强行用Wine (ubuntu下的windows虚拟器)来Wine出一个简易版的迅雷。</p>
+<hr>
+<h4 id="一、安装Wine"><a href="#一、安装Wine" class="headerlink" title="一、安装Wine"></a>一、安装Wine</h4><p>打开终端，在终端中依行键入下方的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>对于 64 位系统，需要开启 32 位架构支持：</span><br><span class="line">sudo dpkg --add-architecture i386</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>添加 Wine 官方 PPA：</span><br><span class="line">sudo add-apt-repository ppa:wine/wine-builds</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>PPA 添加完成后，我们先刷新包缓存再安装 Wine：</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install --install-recommends winehq-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>安装完成后，可以使用如下命令来初始化 Wine 配置：</span><br><span class="line">winecfg</span><br></pre></td></tr></table></figure>
+<p>安装过程不再加以赘述，一步一步跟着走就行。安装时间可能会有点长，耐心等待即可。</p>
+<p>安装所得为一个最新的稳定版Wine。</p>
+<h4 id="二、下载迅雷exe文件"><a href="#二、下载迅雷exe文件" class="headerlink" title="二、下载迅雷exe文件"></a>二、下载迅雷exe文件</h4><p><a href="https://pan.baidu.com/s/13KwSHXhMvr11EgsZMUFWEA" target="_blank" rel="noopener">精简版迅雷 ( 密码: 5xtn )</a></p>
+<p>这是本人尝试了大部分网上能下载到的迅雷里wine的效果最好的一个迅雷版本，相对其他的可以说是相当兼容ubuntu了。所以建议其他的版本可以不用尝试了。如果还有什么好的建议，欢迎在文章下方的评论区留言，或者联系本人的微博、twitter等。</p>
+<p>下载所得是一个exe文件，ubuntu下想打开并运行exe文件，那么就必须要安装wine了。</p>
+<h4 id="三、安装迅雷"><a href="#三、安装迅雷" class="headerlink" title="三、安装迅雷"></a>三、安装迅雷</h4><p>待wine安装好，exe文件也下载好之后就可以进行迅雷的安装了。</p>
+<p>右键迅雷.exe,选择打开方式为 <strong>Wine Windows Program Loader</strong> ，即可想windows一样安装软件了。</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-13-2.png" alt="2"></p>
+<p><img src="http://blogimg.since1105.wang/2018-03-13-3.png" alt="3"></p>
+<p>选择目标文件夹，然后下一步下一步即可，与windows一模一样。</p>
+<p>最后，在软件中找到 <strong>精简版迅雷</strong> 点击打开即可使用。</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-13-5.png" alt="5"></p>
+<p>该版本迅雷，只在偶尔出现过崩溃的情况，只需注销用户后重新登陆即可正常使用。</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-13-1.png" alt="1"></p>
+<p>上图为本人下载少年谢尔顿时的下载界面，可以看到出现乱码的情况。这是因为迅雷软件里的中文字体设置在ubuntu下没有，所以无法正常显示中文，具体没找到解决方案，但是不影响使用。而且，可以看到，本人在并不算好的网络环境下可以达到 2MB/s，与windows几乎无差别。而且当时复制了迅雷的的下载链接，只要后台运行这迅雷，那么就可以直接打开迅雷下载界面，方便如windows。几乎完美解决ubuntu下在大文件缓慢的问题。</p>
+<p>为什么说是几乎呢，因为精简版迅雷是不支持种子下载的。有些人获取看到这里会发出些许的感叹吧。(滑稽)</p>
+<p>不过，相较于ubuntu环境下的 <strong>电驴</strong> 可以说是好用到几百倍。</p>
+<p>后台运行时，在系统状态栏会有图标显示，如图</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-13-4.png" alt="4"></p>
+<p>和大神wine出来的QQ是我在ubuntu里用的最多的软件之二了。</p>
+<hr>
+<p>关于IOS使用迅雷：</p>
+<p>（仅限 2018年-3月-13日这一天，鬼知道什么时候又不能用了，不能用我会更新）</p>
+<p>在iphone的自带浏览器Safari中打开下面这串链接，按步骤操作即可</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http://ithunder-ota.a.88cdn.com/download-guide/step1.html</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>​    关于迅雷，今天就写到这里，可能会有补充和更新将在后续进行。</p>
+<p>​    如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+<p>​    如需转载，请注明出处，谢谢。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、安装Wine"><span class="toc-text">一、安装Wine</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、下载迅雷exe文件"><span class="toc-text">二、下载迅雷exe文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、安装迅雷"><span class="toc-text">三、安装迅雷</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-03-13-[ubuntu]不定期更新的日常/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Ubuntu/"><i class="fa fa-tags"></i>Ubuntu</a>
+     
+      <a href="/tags/安装与配置/"><i class="fa fa-tags"></i>安装与配置</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-03-14-关于修改主题的总结/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-03-06-AWS/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

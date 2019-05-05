@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>[Ubuntu]之使用基础 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,Ubuntu,操作,软件使用,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-02-13
+    </span>
+    
+      <span>
+        | <a href="/categories/操作系统/"><i class="fa fa-bookmark"></i>操作系统</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    [Ubuntu]之使用基础
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-02-13-1.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>​    安装好了ubuntu之后首先要进行一些基本的操作与基本的软件的下载。将一切准备就绪之后，就可以根据自己的喜好选择一些自己喜欢的主题进行美化了。</p>
+<h3 id="2018-02-13-Ubuntu的使用基础"><a href="#2018-02-13-Ubuntu的使用基础" class="headerlink" title="2018-02-13 Ubuntu的使用基础"></a>2018-02-13 Ubuntu的使用基础</h3><h3 id="基本操作与基本的软件下载推荐"><a href="#基本操作与基本的软件下载推荐" class="headerlink" title="基本操作与基本的软件下载推荐"></a>基本操作与基本的软件下载推荐</h3><h3 id="（一）基本操作"><a href="#（一）基本操作" class="headerlink" title="（一）基本操作"></a>（一）基本操作</h3><h4 id="1、更新系统及当前系统下的第三方软件"><a href="#1、更新系统及当前系统下的第三方软件" class="headerlink" title="1、更新系统及当前系统下的第三方软件"></a>1、更新系统及当前系统下的第三方软件</h4><p>​    终端中输入:(ubuntu默认：<strong>ctrl+alt+t</strong> 打开终端)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-manager</span><br></pre></td></tr></table></figure>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-1.png" alt="2018-02-13-1"></p>
+<p>​    等待安装完成后，重启电脑即可。</p>
+<h4 id="2、设置ubuntu为本地时间"><a href="#2、设置ubuntu为本地时间" class="headerlink" title="2、设置ubuntu为本地时间"></a>2、设置ubuntu为本地时间</h4><p>​    因为整体机子是ubuntu+windows的双系统，如果不将ubuntu的系统时间设为本地时间的话，会对windows系统的时间造成影响。BIOS会认为windows的时间是格林尼治时间而将时间减少8小时。会造成ubuntu为北京时间时，在windows里更改成北京时间后，ubuntu的时间又变成了格林尼治时间。以此类推会对使用造成困扰。</p>
+<p>​    解决的方法很简单，终端中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-local-rtc true</span><br></pre></td></tr></table></figure>
+<p>​    回车后没有任何提示，但是实际是已经解决了问题。</p>
+<h4 id="3、其他就是一些终端的文件、目录的基本操作了"><a href="#3、其他就是一些终端的文件、目录的基本操作了" class="headerlink" title="3、其他就是一些终端的文件、目录的基本操作了"></a>3、其他就是一些终端的文件、目录的基本操作了</h4><p>​    略</p>
+<h3 id="（二）基本的软件推荐"><a href="#（二）基本的软件推荐" class="headerlink" title="（二）基本的软件推荐"></a>（二）基本的软件推荐</h3><h4 id="1、新得立软件包管理器"><a href="#1、新得立软件包管理器" class="headerlink" title="1、新得立软件包管理器"></a>1、新得立软件包管理器</h4><p>​    用于管理系统已装与未装的软件神器，在里面搜索软件名即可安装或卸载相应的软件</p>
+<p><strong>安装方法：</strong></p>
+<p>​    Ubuntu Software（ubuntu软件商店）内搜索 ‘synaptic’ 安装</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-3.png" alt="2018-02-13-3"></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-2.png" alt="2018-02-13-2"></p>
+<h4 id="2、GDebi软件包安装器"><a href="#2、GDebi软件包安装器" class="headerlink" title="2、GDebi软件包安装器"></a>2、GDebi软件包安装器</h4><p>​    在ubuntu里也是一款神器，可以快速安装deb格式的软件包，免去了在终端命令行里输命令安装的繁琐。deb格式的软件包，只需要用它来打开，就像是windows的操作一样。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    软件商店搜索 ‘GDebi’ 等待安装即可</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-4.png" alt="2018-02-13-4"></p>
+<h4 id="3、搜狗输入法"><a href="#3、搜狗输入法" class="headerlink" title="3、搜狗输入法"></a>3、搜狗输入法</h4><p>​    ubuntu自带的输入法对于中文的输入虽然已经做的不错了，但是对于国人来说依然觉得差强人意了。所以，搜狗输入法 For Linux的出现，简直就是福星。使用效果与windows没有差别，而且在windows下，搜狗输入法的使用人群可以说是相当庞大，接触linux后有一款符合自己使用习惯的输入法软件，对于新手来说简直就是可以无缝接入ubuntu的赶脚。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    浏览器百度搜索 ‘sougou for Linux’，下载deb包，然后右键用GDebi软件包安装器打开，点击安装软件即可。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-5.png" alt="2018-02-13-5"></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-6.png" alt="2018-02-13-6"></p>
+<p>​    看清支持版本后，根据自己的系统版本，选择32位的或是64位的版本，点击下载，保存即可获得 deb 软件包。之后<strong>右键 sougou.deb 选择在GDebi中打开</strong>即可进行安装与卸载操作。</p>
+<p>​    安装好后自动添加到系统输入法选项中，点击键盘 <strong>ctrl+空格</strong> 即可切换输入法。</p>
+<h4 id="4、Unity-Tweak-Tool（Unity桌面环境的界面优化工具）"><a href="#4、Unity-Tweak-Tool（Unity桌面环境的界面优化工具）" class="headerlink" title="4、Unity Tweak Tool（Unity桌面环境的界面优化工具）"></a>4、Unity Tweak Tool（Unity桌面环境的界面优化工具）</h4><p>​    后续界面美化将会用到</p>
+<p><strong>安装方法：</strong></p>
+<p>​    ubuntu商店搜索 ‘Unity Tweak Tool’ 点击安装即可</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-7.png" alt="2018-02-14-7"></p>
+<h4 id="5、Grub-Customizer（开机引导程序Grub的管理器）"><a href="#5、Grub-Customizer（开机引导程序Grub的管理器）" class="headerlink" title="5、Grub Customizer（开机引导程序Grub的管理器）"></a>5、Grub Customizer（开机引导程序Grub的管理器）</h4><p>​    用于设置与管理开机引导的相关事项，可以更改开机引导的主题</p>
+<p><strong>安装方法：</strong></p>
+<p>​    应用商店中没有，在终端使用命令行下载安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:danielrichter2007/grub-customizer</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install grub-customizer</span><br></pre></td></tr></table></figure>
+<p>​    等待终端运行结束即可。</p>
+<h4 id="6、GIMP（图像处理软件）"><a href="#6、GIMP（图像处理软件）" class="headerlink" title="6、GIMP（图像处理软件）"></a>6、GIMP（图像处理软件）</h4><p>​    GIMP是一款十分好用的图像处理软件，安装后像是windows下的画图工具，轻巧灵变，其功能又更偏向Photoshop，实用强大。后续将用它来处理图像以及更改图片的格式。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    商店搜索 ‘GIMP’ 点击安装即可。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-8.png" alt="2018-02-13-8"></p>
+<h4 id="7、Linux版WeChat（微信）"><a href="#7、Linux版WeChat（微信）" class="headerlink" title="7、Linux版WeChat（微信）"></a>7、Linux版WeChat（微信）</h4><p>​    不用多介绍，大神做的Linux阉割版微信，但应付聊天完全没什么问题。其实，应该就是将网页版微信移植到Linux。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    <a href="https://github.com/geeeeeeeeek/electronic-wechat/releases" target="_blank" rel="noopener">electronic-wechat</a> 更新到 2017-02-13 ，但现在仍然可以正常使用。</p>
+<p>​    下载了压缩包后，解压，双击 “electronic-wechat” 运行微信。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-9.png" alt="2018-02-13-9"></p>
+<p><strong>使用方法：</strong></p>
+<p>​    通过手机扫描二维码登录。</p>
+<p>​    有通知提醒，有状态栏小图标。感谢作者 <a href="https://github.com/geeeeeeeeek" target="_blank" rel="noopener">geeeeeeeeek</a></p>
+<h4 id="8、chrome"><a href="#8、chrome" class="headerlink" title="8、chrome"></a>8、chrome</h4><p>​    本人最常用浏览器，配合FQ一同食用，好感度加分。后续教学，FQ。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    终端运行如下命令：（逐条执行）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get -f install     //额外执行</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+<h4 id="9、网易云音乐"><a href="#9、网易云音乐" class="headerlink" title="9、网易云音乐"></a>9、网易云音乐</h4><p>​    当初看到网易云低调的推出Linux版的时候，我简直是太激动啦。这真是国内最良心音乐平台。本来就一直在用，后来用上了Linux版，和Windows完全没有差别的Linux软件，这岂不是美滋滋。为网易云深鞠躬。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    百度搜索 ‘网易云 for linux’，下载与系统版本对应的deb文件，与搜狗安装方式相同。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-10.png" alt="2018-02-13-10"></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-11.png" alt="2018-02-13-11"></p>
+<h4 id="10、Typora（markdown编辑器）"><a href="#10、Typora（markdown编辑器）" class="headerlink" title="10、Typora（markdown编辑器）"></a>10、Typora（markdown编辑器）</h4><p>​    这就是我现在写博客用的编辑器，完美在各个系统版本上运行。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    终端命令如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> optional, but recommended</span></span><br><span class="line"></span><br><span class="line">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> add Typora<span class="string">'s repository</span></span></span><br><span class="line"></span><br><span class="line">sudo add-apt-repository 'deb http://typora.io linux/'</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> install typora</span></span><br><span class="line"></span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+<p>​    安装好后点击图标即可，运行。</p>
+<h4 id="11、QQ"><a href="#11、QQ" class="headerlink" title="11、QQ"></a>11、QQ</h4><p>​    与上面微信类似，也是阉割版的，不过他之所以算是阉割版，是因为他不在更新了，使用的是2012国际版qq的Wine版。虽然有点差强人意，但是平常聊天依然可以正常进行。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    <a href="https://pan.baidu.com/s/1eToTEpG" target="_blank" rel="noopener">密码: 8uay</a></p>
+<p>​    下载得到zip压缩包，解压后得到三个deb包。将这三个deb包用GDebi逐个安装即可。参考 搜狗输入法 的安装。</p>
+<p><strong>使用方法：</strong></p>
+<p>​    点击qq图标打开qq，或者在终端输入 “wine-qqintl” 。初始化需等待数秒，之后会很快。</p>
+<p>​    不多说，其他和windows一样，只是不能完成视频、收红包等操作。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-12.png" alt="2018-02-13-12"></p>
+<p>​    同样感谢不知名大神。</p>
+<h4 id="12、Docky（ubuntu下好看的dock栏）"><a href="#12、Docky（ubuntu下好看的dock栏）" class="headerlink" title="12、Docky（ubuntu下好看的dock栏）"></a>12、Docky（ubuntu下好看的dock栏）</h4><p>​    像使用Mac一样使用你的Ubuntu。</p>
+<p><strong>安装方法：</strong></p>
+<p>​    在应用商店搜索 “docky” 点击安装即可。</p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-13.png" alt="2018-02-13-13"></p>
+<p><img src="http://blogimg.since1105.wang/2018-02-13-14.png" alt="2018-02-13-14"></p>
+<p>​    暂时想到这些东西，其他的后续补充。</p>
+<hr>
+<p>​    如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+<p>​    如需转载，请注明出处，谢谢。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2018-02-13-Ubuntu的使用基础"><span class="toc-text">2018-02-13 Ubuntu的使用基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本操作与基本的软件下载推荐"><span class="toc-text">基本操作与基本的软件下载推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）基本操作"><span class="toc-text">（一）基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、更新系统及当前系统下的第三方软件"><span class="toc-text">1、更新系统及当前系统下的第三方软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、设置ubuntu为本地时间"><span class="toc-text">2、设置ubuntu为本地时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、其他就是一些终端的文件、目录的基本操作了"><span class="toc-text">3、其他就是一些终端的文件、目录的基本操作了</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）基本的软件推荐"><span class="toc-text">（二）基本的软件推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、新得立软件包管理器"><span class="toc-text">1、新得立软件包管理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、GDebi软件包安装器"><span class="toc-text">2、GDebi软件包安装器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、搜狗输入法"><span class="toc-text">3、搜狗输入法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、Unity-Tweak-Tool（Unity桌面环境的界面优化工具）"><span class="toc-text">4、Unity Tweak Tool（Unity桌面环境的界面优化工具）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、Grub-Customizer（开机引导程序Grub的管理器）"><span class="toc-text">5、Grub Customizer（开机引导程序Grub的管理器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、GIMP（图像处理软件）"><span class="toc-text">6、GIMP（图像处理软件）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、Linux版WeChat（微信）"><span class="toc-text">7、Linux版WeChat（微信）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、chrome"><span class="toc-text">8、chrome</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、网易云音乐"><span class="toc-text">9、网易云音乐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、Typora（markdown编辑器）"><span class="toc-text">10、Typora（markdown编辑器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、QQ"><span class="toc-text">11、QQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、Docky（ubuntu下好看的dock栏）"><span class="toc-text">12、Docky（ubuntu下好看的dock栏）</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-02-13-[ubuntu]不定期更新的日常/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Ubuntu/"><i class="fa fa-tags"></i>Ubuntu</a>
+     
+      <a href="/tags/操作/"><i class="fa fa-tags"></i>操作</a>
+     
+      <a href="/tags/软件使用/"><i class="fa fa-tags"></i>软件使用</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-02-14-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-02-12-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

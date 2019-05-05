@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="xSeven">
+  
+  
+  <title>[Ubuntu]之sublime里的CSS、JS语法报错插件 | 徐金琦的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,Ubuntu,安装与配置,sublime,">
+  
+
+  
+  <meta name="description" content="徐金琦的博客">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-05-05",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "xSeven",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">xSeven</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 要记录！要记录！</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/xukimseven/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-03-18
+    </span>
+    
+      <span>
+        | <a href="/categories/操作系统/"><i class="fa fa-bookmark"></i>操作系统</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    [Ubuntu]之sublime里的CSS、JS语法报错插件
+  </h1>
+  
+    <div class="passage-cover">
+      <figure style="background-image:url(http://blogimg.since1105.wang/2018-03-18-4.png);"></figure>
+    </div>
+  
+  <article class="passage-article">
+    <p>​    既然在ubuntu里使用了sublime，也一定少不了在sublime里安装适合自己使用的插件。在网上随便一搜就会有大量的插件推荐给用户。其中，关于代码语法报错，在我看来是相当重要的一种插件。这里就介绍一下ubuntu下的sublime安装CSS与JS代码语法报错的插件。</p>
+<h3 id="一、给sublime安装-package-control"><a href="#一、给sublime安装-package-control" class="headerlink" title="一、给sublime安装 package control"></a>一、给sublime安装 package control</h3><p>打开sublime，并且点击键盘上的 <code>ctrl+~</code> 进入sublime的控制台，并在里面输入如下代码，如图</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)</span><br></pre></td></tr></table></figure>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-1.png" alt="2018-03-18-"></p>
+<p>然后回车，即可安装 <strong>package control</strong></p>
+<h3 id="二、知道如何安装插件"><a href="#二、知道如何安装插件" class="headerlink" title="二、知道如何安装插件"></a>二、知道如何安装插件</h3><p>点击键盘上的 <code>shift+ctrl+p</code> ，然后在输入框中输入 <code>pcip</code> ，回车</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-2.png" alt="2018-03-18-"></p>
+<h3 id="三、安装Node-js"><a href="#三、安装Node-js" class="headerlink" title="三、安装Node.js"></a>三、安装Node.js</h3><p>在安装插件之前，需要先安装<strong>Node.js</strong>来配置语法报错所需要的环境</p>
+<p>在终端输入以下命令</p>
+<p>1、先在系统上安装好nodejs和npm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs-legacy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+<p>2、升级npm为最新版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm@latest -g</span><br></pre></td></tr></table></figure>
+<p>3、安装用于安装nodejs的模块n</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g n</span><br></pre></td></tr></table></figure>
+<p>4、通过n模块安装指定的nodejs</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n latest</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n lts</span><br></pre></td></tr></table></figure>
+<p>5、查看版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo node -v</span><br><span class="line">sudo npm -v</span><br></pre></td></tr></table></figure>
+<p>～如果出现提示说 /usr/bin/env: node: 没有那个文件或目录 只需在终端输入一下命令～</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/bin/nodejs /usr/bin/node</span><br></pre></td></tr></table></figure>
+<p>当查看版本时看到有版本号时，就说明安装成功了</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-3.png" alt="2018-03-18-"></p>
+<h3 id="四、安装-jshint-和-csslint"><a href="#四、安装-jshint-和-csslint" class="headerlink" title="四、安装 jshint 和 csslint"></a>四、安装 jshint 和 csslint</h3><p>首先，进入 root 权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+<p>然后，在终端输入以下命令进行全局安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install jshint -g</span><br><span class="line">npm install csslint -g</span><br></pre></td></tr></table></figure>
+<p>当出现如下显示，即为成功</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-4.png" alt="2018-03-18-"></p>
+<h3 id="五、安装报错插件"><a href="#五、安装报错插件" class="headerlink" title="五、安装报错插件"></a>五、安装报错插件</h3><p>配置完环境之后，就开始安装相应的报错插件了。</p>
+<h4 id="1、安装SublimeLinter"><a href="#1、安装SublimeLinter" class="headerlink" title="1、安装SublimeLinter"></a>1、<strong>安装</strong><a href="https://github.com/SublimeLinter/SublimeLinter3" target="_blank" rel="noopener"><strong>SublimeLinter</strong></a></h4><p>SublimeLinter是Sublime的一个代码检测工具插件。</p>
+<p>按照第二步的做法：</p>
+<ul>
+<li>打开Sublime，按下 Ctrl+Shift+p 进入 Command Palette;</li>
+<li>输入pcip进入 Package Control: Install Package;</li>
+<li>输入SublimeLinter，选择SublimeLinter进行安装。</li>
+</ul>
+<h4 id="2、安装-SublimeLinter-csslint-和-SublimeLinter-jshint"><a href="#2、安装-SublimeLinter-csslint-和-SublimeLinter-jshint" class="headerlink" title="2、安装 SublimeLinter-csslint 和 SublimeLinter-jshint"></a>2、安装 SublimeLinter-csslint 和 SublimeLinter-jshint</h4><ul>
+<li>打开Sublime，按下 Ctrl+Shift+p 进入 Command Palette;</li>
+<li>输入pcip进入 Package Control: Install Package;</li>
+<li>输入SublimeLinter-csslint，选择SublimeLinter-csslint进行安装。</li>
+<li>输入SublimeLinter-jshint，选择SublimeLinter-jshint进行安装。</li>
+</ul>
+<h3 id="六、安装完成，关于使用"><a href="#六、安装完成，关于使用" class="headerlink" title="六、安装完成，关于使用"></a>六、安装完成，关于使用</h3><p>依照上述步骤安装好所有东西，就算是安装好报错插件了。</p>
+<p>如图：</p>
+<p><strong>CSS报错</strong></p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-5.png" alt="2018-03-18-"></p>
+<p>上图有两个错误：</p>
+<p>1、“ <strong>{</strong> ” 没有与之匹配的 “ <strong>}</strong> ” 鼠标移到上图第一个 <strong>红色框框</strong> 处，显示如下报错信息</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-6.png" alt="2018-03-18-"></p>
+<p>2、第二行没有写 “ <strong>;</strong> ” 鼠标移到上图第二个 <strong>红色框框</strong> 处，显示如下报错信息</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-7.png" alt="2018-03-18-"></p>
+<p>修改错误之后，就会显示正常</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-8.png" alt="2018-03-18-"></p>
+<p><strong>JS报错</strong></p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-9.png" alt="2018-03-18-"></p>
+<p>上图有一个错误：</p>
+<p>“ <strong>{</strong> ” 没有与之匹配的 “ <strong>}</strong> ” 鼠标移到上图第一个 <strong>红色框框</strong> 处，显示如下报错信息</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-10.png" alt="2018-03-18-1"></p>
+<p>修改错误之后，就会显示正常</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-11.png" alt="2018-03-18-1"></p>
+<hr>
+<p>​    装上以上两个报错插件对于学习 前端开发 的小朋友来说，sublime完全可以替代好多非轻量级的编辑器了。当然如果装上更多适合自己日常使用的插件后，sublime简直就是代码神器啊。</p>
+<p>​    推荐几个好用的插件</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-12.png" alt="2018-03-18-1"></p>
+<p>1、A File Icon ：提供了一套侧边栏图标</p>
+<p>2、Alignment ：方便代码按格式排列</p>
+<p>3、AutoFileName ：文件路径补全提示</p>
+<p>4、BracketHeightlighter ：匹配 {} 、“” 、‘’ 、() 、[] ，且在侧边会有提示</p>
+<p><img src="http://blogimg.since1105.wang/2018-03-18-14.png" alt="2018-03-18-1"></p>
+<p>5、Emmet ：代码不全</p>
+<p>6、Sider Bar ：强化侧边栏</p>
+<p>7、ConvertToUTF8 ：GBK 转 UTF8</p>
+<hr>
+<p>​    如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+<p>​    如需转载，请注明出处，谢谢。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、给sublime安装-package-control"><span class="toc-text">一、给sublime安装 package control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、知道如何安装插件"><span class="toc-text">二、知道如何安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、安装Node-js"><span class="toc-text">三、安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、安装-jshint-和-csslint"><span class="toc-text">四、安装 jshint 和 csslint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、安装报错插件"><span class="toc-text">五、安装报错插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装SublimeLinter"><span class="toc-text">1、安装SublimeLinter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、安装-SublimeLinter-csslint-和-SublimeLinter-jshint"><span class="toc-text">2、安装 SublimeLinter-csslint 和 SublimeLinter-jshint</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、安装完成，关于使用"><span class="toc-text">六、安装完成，关于使用</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 徐金琦</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://xseven.me/passages/2018-03-18-[ubuntu]不定期更新的日常/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Ubuntu/"><i class="fa fa-tags"></i>Ubuntu</a>
+     
+      <a href="/tags/安装与配置/"><i class="fa fa-tags"></i>安装与配置</a>
+     
+      <a href="/tags/sublime/"><i class="fa fa-tags"></i>sublime</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/" target="_blank">GodBMW</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">系列教程</h5>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/categories/webpack4%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" target="_blank">webpack4系列教程</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+            </span>
+          
+        </div>
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">抓到我</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://weibo.com/u/5655278647" target="_blank">微博</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://www.instagram.com/xseven_0210/" target="_blank">instagram</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="http://twitter.com/xukim777" target="_blank">Twitter</a>
+            </span>
+          
+            <span class="site-footer-item">
+              <a href="https://codepen.io/xukimseven/" target="_blank">Codepen</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: xujinqi7@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/2018-03-21-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/2018-03-17-[ubuntu]不定期更新的日常/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
