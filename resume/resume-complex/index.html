@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/media.css">
+  <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="./css/animate.css">
+  <!-- Favicon -->
+  <link href="./img/icon.png" rel="shortcut icon" />
+  <link href="./img/icon.png" rel="apple-touch-icon-precomposed" />
+  <!-- Android Lolipop Theme Color -->
+  <!-- <meta name="theme-color" content="#32393f"> -->
+  <title>Resume</title>
+
+</head>
+<body>
+  <!-- 首页开始 -->
+  <a name="top" id="top"></a>
+  <div class="index">
+    <!-- 空白占位 -->
+    <div class="block"></div>
+    <!-- 文字部分 -->
+    <div class="bak">
+      <div class="text">
+        <span id="first" class="jello animated">HelloWorld!</span>
+        <br>
+        <span id="second" class="zoomIn animated">This is xSeven.</span>
+        <br>
+        <span id="and" class="zoomIn animated">And</span>
+        <br>
+        <span id="third" class="zoomIn animated">xSeven's personal resume.</span>
+        <br>
+        <br>
+        <br>
+        <span id="fourth" class="rubberBand animated">2018-05-11</span>
+      </div>
+    </div>
+    <!-- 文字结束 -->
+    <!-- 向下键 -->
+    <a href="#introduction" onclick="donghua();donghuaShowIntroduction()">
+      <div class="down">
+        <img src="./img/down.png" alt="向下">
+      </div>
+    </a>
+    <!-- 向下键结束 -->
+  </div>
+  <!-- 首页结束 -->
+  <!-- 简介开始 -->
+  <div class="main">
+    <!-- 导航栏开始 -->
+    <a name="nav" id="nav">
+    <div class="header">
+      <div class="center">
+        <ul id="left">
+          <a href="#introduction" onclick="donghua();donghuaShowIntroduction()"><li class="link">个人简介</li></a>
+          <a href="#skills" onclick="donghua();donghuaShowSkill();"><li class="link">技能掌握</li></a>
+        </ul>
+        <ul id="right">
+          <a href="#project" onclick="donghua();donghuaShowPlus();"><li class="link">最近项目</li></a>
+          <a href="#contact" onclick="donghua();donghuaCard();"><li class="link">联系方式</li></a>
+        </ul>
+        <a href="#top"><span id="talkcock"  class="rubberBand animated">resume</span></a>
+        <!-- 点击出现下拉框 -->
+        <!-- <a id="boot1" onclick="ch3();ch4();ch7();">
+					<div class="boot">
+					</div>
+				</a>
+				<a id="boot2" onclick="ch5();ch6();ch8();">
+					<div class="boot">
+					</div>
+				</a> -->
+      </div>
+    </div>
+    <!-- <div class="chooseGone">
+      <div class="choose"><a href=""><div class="line">主 页</div></a></div>
+			<div class="choose"><a href="login.html"><div class="line">登 录</div></a></div>
+			<div class="choose"><a href="search.html"><div class="line">搜 索</div></a></div>
+			<div class="choose"><a href="about.html"><div class="line">关 于</div></a></div>
+    </div> -->
+    <!-- 导航栏结束 -->
+    <!-- 介绍开始 -->
+    <div class="introduction">
+      <a name="introduction" id="introduction"></a>
+      <div id="showIntroduction" class="rubberBand animated">
+        <div class="pTitle">
+          <span>个人简历</span>
+        </div>
+        <div class="picBak"></div>
+        <div class="pic"><img src="./img/profile.gif" alt="头像"></div>
+        <div class="pMain">
+          <span>徐 金 琦</span><br><br>
+          <span>学校：浙江万里学院<br>
+                专业：计算机科学与技术<br>
+                学历：本科在读<br>
+                求职意愿：H5前端工程师</span>
+        </div>
+      </div>
+      <!-- 向下键 -->
+      <a href="#skills" onclick="donghua();donghuaShowSkill();">
+        <div class="down">
+          <img src="./img/down.png" alt="向下" height="50" width="50">
+        </div>
+      </a>
+      <!-- 向下键结束 -->
+    </div>
+    <!-- 介绍结束 -->
+    <!-- 技能开始 -->
+    <div class="skills">
+      <a name="skills" id="skills"></a>
+      <div id="showSkill" class="rubberBand animated">
+        <div class="pTitle">
+          <span>技能掌握</span>
+        </div>
+        <div class="colorBlock">
+          <span id="shoulian">熟 练</span>
+          <span id="liaojie">了 解</span>
+        </div>
+        <div class="skillBlock">
+          <ul>
+            <li>CSS</li>
+            <li>Html</li>
+            <li>JavaScript</li>
+            <li>CSS3</li>
+            <li>Ubuntu</li>
+            <li>Jekyll</li>
+            <li>JQuary</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+            <li>Bootstrap</li>
+            <li>Centos7</li>
+            <li>Vue.js</li>
+            <li>Git</li>
+            <li>node.js</li>
+            <li>java</li>
+            <li>photoshop</li>
+            <li>canvas</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 向下键 -->
+      <a href="#project" onclick="donghua();donghuaShowPlus();">
+        <div class="down">
+          <img src="./img/down.png" alt="向下" height="50" width="50">
+        </div>
+      </a>
+      <!-- 向下键结束 -->
+    </div>
+    <!-- 技能结束 -->
+    <!-- 项目开始 -->
+    <div class="project">
+      <a name="project" id="project"></a>
+      <div id="showPlus" class="rubberBand animated">
+        <div class="pTitle">
+          <span>最近项目</span>
+        </div>
+        <div class="showProject">
+          <div class="projectBlock">
+            <a href="http://www.since1105.wang/soulmusic/">
+              <div class="projectCard">
+                <div class="img1">
+                  <div class="projectShow" title="滚动">
+                    <span>项 目 简 介</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目由 html + css + js + JQuary + PHP 构建。
+                          以音乐播放器为初心，以音乐站点为最终形成。本站数据来源为 [ 网易云音乐 ] 非官方数据源，
+                           API 为 Github 开源项目，本人只是借用。<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本项目名称暂定：SoulMusic（灵魂乐曲）。前端用CSS与CSS3
+                          完成样式的布局，且为响应式，适应主流设备的正常浏览。<br><br>API名称：<em>网易云音乐 NodeJS 版 API</em>。
+                    </span>
+                  </div>
+                </div>
+                <span class="projectName">SoulMusic</span>
+              </div>
+            </a>
+          </div>
+          <div class="projectBlock">
+            <a href="https://github.com/xukimseven/HardCandy-Jekyll">
+              <div class="projectCard">
+                <div class="img2">
+                  <div class="projectShow" title="滚动">
+                    <span>项 目 简 介</span>
+                    <span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一款清新 糖果色🍬 的 ‘Jekyll’ 主题。A candy-colored 🍬 ‘Jekyll’ theme. <br><br> 项目具体内容，请点击此处进入我的项目仓库查看哦。
+                    </span>
+                  </div>
+                </div>
+                <span class="projectName">HardCandy-Jekyll</span>
+              </div>
+            </a>
+          </div>
+          <div class="projectBlock">
+            <a href="http://www.since1105.wang/color/">
+              <div class="projectCard">
+                <div class="img3">
+                  <div class="projectShow" title="滚动">
+                    <span>项 目 简 介</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目初心：在学习 JSON 的时候发现 JSON 作为
+                          一个本地存取数据的文件还是很有意思的。所以想做个使用 JSON 小Demo。<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目灵感：本人在学习前端的过程中对于颜色的搭配很是偏执，
+                          介于颜色的选择过于单一，所以在日常生活中会收集好看的颜色。<br><br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以，结合上面的想法，写了这个收集颜色的小DEMO。
+                    </span>
+                  </div>
+                </div>
+                <span class="projectName">颜色收割者</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a href="https://github.com/xukimseven">
+          <div class="btn" title="前往Github查看我的其他项目">
+            <div class="sanZuo"></div>
+            <span>其 他 项 目</span>
+          </div>
+        </a>
+      </div>
+      <!-- 向下键 -->
+      <a href="#contact" onclick="donghua();donghuaCard();">
+        <div class="down">
+          <img src="./img/down.png" alt="向下" height="50" width="50">
+        </div>
+      </a>
+      <!-- 向下键结束 -->
+    </div>
+    <!-- 项目结束 -->
+    <!-- 联系开始 -->
+    <div class="contact">
+      <a name="contact" id="contact"></a>
+      <div id="contactCard" class="rubberBand animated">
+        <span>联系本人</span>
+        <div id="snsAreaBak">
+          <ul id="snsArea">
+            <li class="sns"><a href="./img/SNS/qq.JPG"><img src="./img/SNS/qq.png" alt="qq" title="芥末味的王八"></a><span>QQ</span></li>
+            <li class="sns"><a href="./img/SNS/wechat.JPG"><img src="./img/SNS/wechat.png" alt="wechat" title="樱桃你个车厘子"></a><span>微信</span></li>
+            <li class="sns"><a href="http://weibo.com/u/5655278647"><img src="./img/SNS/weibo.png" alt="weibo" title="0123456_89"></a><span>微博</span></li>
+            <li class="sns"><a href="http://twitter.com/xukim777"><img src="./img/SNS/twitter.png" alt="twitter" title="前往[xukim777]的twitter"></a><span>twitter</span></li>
+            <li class="sns"><a href="tel:17857024660"><img src="./img/SNS/phone.png" alt="phone" title="17857024660"></a><span>手机</span></li>
+            <li class="sns"><a href="http://xseven.me"><img src="./img/SNS/bolg.png" alt="bolg" title="鸡哥的博客"></a><span>博客</span></li>
+            <li class="sns"><a href="http://github.com/xukimseven"><img src="./img/SNS/github.png" alt="github" title="鸡哥的Github"></a><span>Github</span></li>
+            <li class="sns"><a href="mailto:xujinqi7@gmail.com"><img src="./img/SNS/mail.png" alt="mail" title="mail"></a><span>邮箱</span></li>
+          </ul>
+        </div>
+        <span id="footer">By talkCock	© 2018</span>
+      </div>
+      <!-- 向上键 -->
+      <a href="#introduction" onclick="donghua();donghuaShowIntroduction();">
+        <div class="down">
+          <img src="./img/up.png" alt="向上" height="50" width="50">
+        </div>
+      </a>
+      <!-- 向上键结束 -->
+    </div>
+    <!-- 联系结束 -->
+  </div>
+  <!-- 简介结束 -->
+
+<script src="./js/main.js"></script>
+<script src="./js/jq/jquery.min1.11.3.js"></script>
+<script>
+$('a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 600);
+    return false;
+});
+// window.onscroll =function () {
+//   var scrollTop =  document.body.scrollTop || document.documentElement.scrollTop;
+//   var clientHeight =  document.body.clientHeight || document.documentElement.clientHeight;
+//   if (scrollTop > 50) {
+//     $('html, body').animate({
+//         scrollTop: $(window).height()
+//     }, 500);
+//   }
+// }
+
+// console.log($(window).scrollTop());
+console.log($(window).height());
+</script>
+</body>
+</html>

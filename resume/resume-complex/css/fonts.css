@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'rbno2';
+    src: url('../fonts/rbno2/rbno2light.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/rbno2/rbno2light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rbno2/rbno2light.woff2') format('woff2'),
+         url('../fonts/rbno2/rbno2light.woff') format('woff'),/* Modern Browsers */
+         url('../fonts/rbno2/rbno2light.ttf') format('truetype'),/* Safari, Android, iOS */
+         url('../fonts/rbno2/rbno2light.svg#rbno2light') format('svg');/* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dressler';
+    src: url('../fonts/dressler/dressler.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/dressler/dressler.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dressler/dressler.woff2') format('woff2'),
+         url('../fonts/dressler/dressler.woff') format('woff'),/* Modern Browsers */
+         url('../fonts/dressler/dressler.ttf') format('truetype'),/* Safari, Android, iOS */
+         url('../fonts/dressler/dressler.svg#dressler') format('svg');/* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'arista';
+    src: url('../fonts/arista/arista.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/arista/arista.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arista/arista.woff2') format('woff2'),
+         url('../fonts/arista/arista.woff') format('woff'),/* Modern Browsers */
+         url('../fonts/arista/arista.ttf') format('truetype'),/* Safari, Android, iOS */
+         url('../fonts/arista/arista.svg#arista') format('svg');/* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+
+}

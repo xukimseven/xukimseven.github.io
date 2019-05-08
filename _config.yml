@@ -1,0 +1,106 @@
+# Site settings 配置站点
+title: '徐金琦的博客'
+description: 'Just for fun !'
+keywords: '徐金琦, 徐金琦的独立博客, 徐金琦的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
+url: 'https://xukimseven.github.io' # your host
+
+# nav 中文字符空格：&emsp;
+nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
+  首页: '/'
+  标签: '/tags.html'
+  时间线: '/timeline.html'
+  关于博主: '/about.html'
+  个人简历: '/resume/index.html'
+  友情链接: '/friendLink.html'
+
+# 博主
+author: true
+name: '徐金琦'
+NickName: 'xSeven'
+webtitle: 'xSeven'
+bio: '一个前端小学生'
+about: true
+aboutyou: '&emsp;&emsp;本人就读于 [ <a href="http://www.zjwu.net/">浙江万里学院</a> ]，现在是个计算机专业的大四小学生（2019年）。爱好有多多，看篮球足球、
+        打篮球、看动漫、看综艺以及写前端、设计前端。关于我的项目可以点击下方的 github 图标进入我的主页查看，也可以
+        在博客顶部的个人简历中看到我的项目。项目虽小，但也是我的心血啊，哈哈。当前我使用的博客主题也是我自己写的项目，
+        基于 ruby 和 jekyll ，用 html + css + js 从零写的小项目。当然，要十分感谢一些开源项目，比如 <a href="https://daneden.github.io/animate.css/">css动画库</a> 、<a href="http://www.bootcdn.cn/social-share.js/">
+        Bootstrap 中文网开源项目免费 项目 social-share.js</a>  、<a href="http://www.iconfont.cn/">阿里云图标库</a> 、<a href="https://fonts.google.com">谷歌字体库</a> ,以及第三方
+        评论系统 [<a href="https://disqus.com/profile/login/">dispus</a>]、[<a href="https://livere.com/">来必力livere</a>]、[
+        <a href="https://github.com/settings/applications/new">Gitment</a>]，还有 <a href="https://tongji.baidu.com/web/welcome/login?castk=LTE%3D">百度统计</a>和
+        <a href="https://www.google.com/intl/zh-CN/analytics/">谷歌分析</a> 等等。。。<br>
+        &emsp;&emsp;当然还要感谢， H2O 主题开发者 <a href="https://github.com/kaeyleo">悟空 kaeyleo</a>。<a href="https://github.com/kaeyleo/jekyll-theme-H2O">H2O</a>
+        是我原先用的博客主题，在使用他与修改他的过程中让我接触与熟悉了 jekyll 这个前端小工具，也促使我写了我自己的主题。当然我也一样，将这个主题开源到github
+        上，供大家使用。如果喜欢我的博客主题，欢迎star和下载使用。下载后修改 _config.yml 即可使用，开封即食。具体看使用文档。
+        '
+portraits: '/assets/profile.jpeg'
+
+# SNS
+SNS: true
+SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:xujinqi7@gmail.com'
+  github: 'https://github.com/xukimseven'
+  Codepen: 'https://codepen.io/xukimseven/'
+  weixin: '/assets/scan/wechat.JPG'
+  # qq: '/assets/scan/qq.JPG'
+  qq: 'http://wpa.qq.com/msgrd?v=3&uin=1209973867&site=qq&menu=yes'
+  weibo: 'http://weibo.com/u/5655278647'
+  instagram: 'https://www.instagram.com/xseven_0210/'
+  Twitter: 'http://twitter.com/xukim777'
+  # Dribbble: ''
+  # Facebook: ''
+  # Google: ''
+  # zhihu: ''
+  # juejin: ''
+  # twitch: ''
+
+# 分页
+paginate: 5
+paginatepath: ['page:num']
+
+# since
+footer:
+  since: 2018
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+# 代码高亮 使用rouge
+highlighter: rouge
+# 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
+pygmentsTheme: 'tango'
+
+# 友情链接
+friends:
+  小气的王二狗: 'https://warrest.github.io'
+  caojidasabi: 'https://my.csdn.net/caojidasabi?locationNum=0&fps=1'
+  Django's blog: 'https://www.djangoz.com/'
+  H20-Jekyll修改在线预览版: 'https://xukim777.github.io'
+
+# 评论 最佳体验 在disqus、livere和Gitment之间三选一
+# disqus 评论
+disqus: true
+disqus_url: 'https://talkcock.disqus.com/embed.js'
+# 来必力评论
+livere: false
+livere_uid: 'MTAyMC8zNDI2OS8xMDgwNg=='
+# Gitment评论 OAuth Application
+Gitment: true
+Gitment_owner: 'xukimseven'  # github用户名
+Gitment_repo: 'xukimseven.github.io'  # github博客存放的仓库名
+client_id: '72361128c7951f78f718'  # 注册 OAuth Application 后获得的 client_id
+client_secret: '96f9d49e9be0dd79df862cd84cf24a421b91835e'  # 注册 OAuth Application 后获得的 client_secret
+
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+
+# 百度统计 在baidu-url里填写自己相关的url代码
+baidu: true
+baidu-url: 'efa555a0adb0eca621754fde118fb358'
+# 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
+google: false
+google-ID: 'UA-119823655-1'
+
+# 博客头信息备选颜色（该部分在站点中不充当站点变量，将其写在post的头信息中用来充当页面变量）
+color: rgb(154,133,255) rgb(255,90,90) rgb(255,210,32) rgb(98,170,255)

@@ -1,0 +1,935 @@
+/*初始化*/
+html,body,ul,li,div,h1{
+  margin: 0;
+  padding: 0;
+}
+html,body,.index{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: table;
+  background-color: #982329;
+  /*overflow: hidden;*/
+}
+a{
+  text-decoration: none;
+}
+
+::-webkit-scrollbar{
+  display:none;
+}
+
+/*首页开始*/
+.index{
+  position: relative;
+}
+/*空白*/
+.block{
+  width: 100%;
+  height: 10%;
+}
+/*文字部分*/
+.bak{
+  display: table;
+  height: 80%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.text{
+  display: table-cell;
+  vertical-align: middle;
+  overflow: hidden;
+}
+#first{
+  cursor: pointer;
+  display: inline-block;
+  font-size: 170px;
+  /*font-weight: bold;*/
+  font-family: dressler;
+  color: white;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+#second,#third{
+  cursor: pointer;
+  display: inline-block;
+  font-size: 70px;
+  /*font-weight: bold;*/
+  font-family: rbno2;
+  color: white;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+#fourth{
+  cursor: pointer;
+  display: inline-block;
+  font-size: 35px;
+  /*font-weight: bold;*/
+  font-family: rbno2;
+  color: white;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+#and{
+  cursor: pointer;
+  display: inline-block;
+  font-size: 40px;
+  /*font-weight: bold;*/
+  font-family: rbno2;
+  color: white;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+/*文字结束*/
+/*向下键*/
+.down{
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width:100%;
+  background-color: rgba(255, 255, 255, .2);
+}
+.down:hover{
+  background-color: rgba(255, 255, 255, .1);
+}
+.down img{
+  height: 50px;
+  width: 50px;
+}
+/*向下键结束*/
+/*首页结束*/
+/*简介开始*/
+.main{
+  height: 400%;
+  width: 100%;
+  position: relative;
+}
+/*介绍模块大小及颜色*/
+.introduction{
+  height: 25%;
+  width: 100%;
+  background-color: #111;
+  position: relative;
+}
+/*技能模块大小及颜色*/
+.skills{
+  height: 25%;
+  width: 100%;
+  background-color: #151515;
+  position: relative;
+}
+/*项目模块大小及颜色*/
+.project{
+  height: 25%;
+  width: 100%;
+  background-color: #333;
+  position: relative;
+}
+/*联系模块大小及颜色*/
+.contact{
+  height: 25%;
+  width: 100%;
+  background-color: #444;
+  position: relative;
+}
+/*导航栏部分*/
+.header{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 9999;
+  float: left;
+  background: #282d31;
+}
+.center{
+  height: 60px;
+  max-width: 1024px;
+  margin: 0 auto;
+  /*background-color: red;*/
+  position: relative;
+}
+#left{
+  display: block;
+  float: left;
+}
+#right{
+  display: block;
+  float: right;
+}
+
+/*导航栏下划线动画*/
+.link{
+  list-style: none;
+  display: block;
+  float: left;
+  height: 60px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /*border: 1px solid red;*/
+  padding: 0 50px;
+  line-height: 60px;
+  position: relative;
+  -webkit-transition: 0.2s all linear;
+  transition: 0.2s all linear;
+}
+.link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 58px;
+    border-bottom: 2px solid white;
+    -webkit-transition: 0.2s all linear;
+    transition: 0.2s all linear;
+}
+.link:hover::before {
+    width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+    border-bottom-color: white;
+    z-index: -1;
+}
+.link:hover ~ .link::before {
+    left: 0;
+}
+/*下划线动画结束*/
+
+.linkleft{
+  float: left;
+}
+.linkright{
+  float: right;
+}
+.link{
+  font-size: 18px;
+}
+#talkcock{
+  cursor: pointer;
+  display: block;
+  font-size: 45px;
+  /*font-weight: bold;*/
+  font-family: arista;
+  color: white;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.center a{
+  color: white;
+  font-size: 30px;
+  font-family: rbno2;
+}
+/*导航栏结束*/
+#showIntroduction,#showSkill{
+  max-width: 1024px;
+  height: 70%;
+  /*background-color: green;*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  margin: 0 auto;
+}
+#showPlus{
+  max-width: 1280px;
+  height: 70%;
+  /*background-color: green;*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 15%;
+  margin: 0 auto;
+}
+/*简介模块开始*/
+.pTitle{
+  width: 400px;
+  margin: 0 auto;
+}
+.pTitle span:first-child{
+  border-bottom: 1px solid rgb(250,200,25);
+  font-size: 100px;
+  font-weight: 450;
+  line-height: 100px;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+.pTitle span{
+  text-align: center;
+  color: rgb(250,200,25);
+  font-size: 20px;
+}
+.picBak{
+  width: 220px;
+  height: 220px;
+  border-radius: 300px;
+  background: rgba(255, 255, 255, .2);
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.pic{
+  width: 200px;
+  height: 200px;
+  border-radius: 300px;
+  /*background: rgba(255, 255, 255, .2);*/
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.pic img{
+  width: 200px;
+  height: 200px;
+  display: block;
+  border-radius: 300px;
+}
+
+/*头像动画*/
+@-webkit-keyframes wobblePic {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  15% {
+    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  30% {
+    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+
+  45% {
+    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  60% {
+    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes wobblePic {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  15% {
+    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  30% {
+    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+
+  45% {
+    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  60% {
+    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.pic img:hover {
+  -webkit-animation-name: wobblePic;
+  animation-name: wobblePic;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  /*-webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;*/
+}
+
+/*头像动画结束*/
+
+.pMain{
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  top: 390px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.pMain span:first-child{
+  font-size: 35px;
+}
+.pMain span{
+  /*display: block;*/
+  text-align: center;
+  color: rgb(250,200,25);
+  font-size: 18px;
+  line-height: 30px;
+}
+
+/*介绍模块结束*/
+
+/*技能模块开始*/
+.colorBlock{
+  height: 35px;
+  width: 450px;
+  border-radius: 3px;
+  /*background-color: red;*/
+  position: absolute;
+  top: 170px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 30px;
+  line-height: 35px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer; /* Safari 5.1 - 6.0 */ /* Opera 11.1 - 12.0 */ /* Firefox 3.6 - 15 */
+  background: -webkit-gradient(linear, left top, right top, from(rgb(250,200,25)) , to(#333));
+  background: linear-gradient(to right, rgb(250,200,25) , #333); /* 标准的语法（必须放在最后） */
+}
+#shoulian,#liaojie{
+  color:#151515;
+  font-size: 18px;
+}
+#shoulian{
+  display: inline-block;
+  float: left;
+}
+#liaojie{
+  display: inline-block;
+  float: right;
+}
+
+/*色块动画*/
+@-webkit-keyframes swingColor {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 3deg);
+    transform: rotate3d(0, 0, 1, 3deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -2deg);
+    transform: rotate3d(0, 0, 1, -2deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 1deg);
+    transform: rotate3d(0, 0, 1, 1deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -1deg);
+    transform: rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes swingColor {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 3deg);
+    transform: rotate3d(0, 0, 1, 3deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -2deg);
+    transform: rotate3d(0, 0, 1, -2deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 1deg);
+    transform: rotate3d(0, 0, 1, 1deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -1deg);
+    transform: rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.colorBlock:hover {
+  -webkit-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swingColor;
+  animation-name: swingColor;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  /*-webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;*/
+}
+/*色块动画结束*/
+
+/*技能块动画*/
+@-webkit-keyframes tadaBlock {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes tadaBlock {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.skillBlock li:hover {
+  -webkit-animation-name: tadaBlock;
+  animation-name: tadaBlock;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  /*-webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;*/
+}
+/*技能块动画结束*/
+
+.skillBlock li{
+  list-style: none;
+  display: inline-block;
+  height: 35px;
+  padding: 0 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  line-height: 35px;
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  /*background-color: rgb(250,200,25);*/
+  margin: 4px 2px;
+}
+
+.skillBlock li:nth-child(1),
+.skillBlock li:nth-child(2),
+.skillBlock li:nth-child(3),
+.skillBlock li:nth-child(4),
+.skillBlock li:nth-child(5){
+  background-color: rgb(250,200,25);
+}
+.skillBlock li:nth-child(6),
+.skillBlock li:nth-child(7),
+.skillBlock li:nth-child(8){
+  background-color: rgba(250,200,25,.8);
+}
+.skillBlock li:nth-child(9),
+.skillBlock li:nth-child(10),
+.skillBlock li:nth-child(11),
+.skillBlock li:nth-child(12){
+  background-color: rgba(250,200,25,.6);
+}
+.skillBlock li:nth-child(13),
+.skillBlock li:nth-child(14){
+  background-color: rgba(250,200,25,.4);
+}
+.skillBlock li:nth-child(15),
+.skillBlock li:nth-child(16),
+.skillBlock li:nth-child(17){
+  background-color: rgba(250,200,25,.2);
+}
+
+.skillBlock li:nth-child(n):hover{
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  background-color: rgb(250,250,50);
+}
+
+.skillBlock{
+  max-width: 450px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 150px auto;
+  font-family: rbno2;
+  font-size: 22px;
+}
+
+/*技能模块结束*/
+
+/*项目模块开始*/
+.showProject{
+  height: 58%;
+  width: 100%;
+  /*background-color: red;*/
+  /*border: 2px solid red;*/
+  margin: 50px 0;
+}
+.projectBlock{
+  width: 33.3%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /*border: 1px solid blue;*/
+  float: left;
+}
+.projectCard{
+  height: 100%;
+  width: 95%;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 2.5%;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  position: relative;
+}
+.projectCard:hover{
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+.img1,.img2,.img3{
+  height: 85%;
+  width: 95%;
+  margin: 2.5% 2.5%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.img1{
+  background-image: url(../img/projects/soulmusic.png);
+}
+.img2{
+  background-image: url(../img/projects/jekyll.png);
+}
+.img3{
+  background-image: url(../img/projects/color.png);
+}
+.projectName{
+  color: #333;
+  font-size: 25px;
+  display: block;
+  position: absolute;
+  top: 89%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.projectShow{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color:rgba(0, 0, 0, 0);
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  padding: 20px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: scroll;
+}
+.projectShow:hover{
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  background-color: rgba(255,255,255,.96);
+  color:#333;
+}
+.projectShow span:first-child{
+  font-size: 35px;
+  display: block;
+  margin-bottom: 5%;
+}
+.projectShow span{
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/*其他项目按钮*/
+.btn{
+  height: 40px;
+  background-color: rgb(250,200,25);
+  color: #333;
+  font-size: 18px;
+  line-height: 40px;
+  margin-top: 60px;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  position: relative;
+}
+.sanZuo {
+  display: inline-block;
+  float: left;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-left: 40px solid #333;
+  border-bottom: 20px solid transparent;
+}
+.sanYou {
+  display: inline-block;
+  float: right;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-right: 40px solid #333;
+  border-bottom: 20px solid transparent;
+}
+.btn:hover{
+  background-color: rgb(250,250,50);
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+.btn span{
+  display: block;
+  float: left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/*项目模块结束*/
+
+/*联系模块开始*/
+#contactCard{
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+  max-width: 1024px;
+  height: 59%;
+  /*background-color: red;*/
+  border: 1px solid #e7eaf1;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #fafbfc;
+  -webkit-box-shadow: 5px 5px 20px #151515;
+          box-shadow: 5px 5px 20px #151515;
+}
+#contactCard span:first-child{
+  display: block;
+  width: auto;
+  height: 70px;
+  padding: 0 20px;
+  border-left: 15px solid rgb(255,200,25);
+  text-align: left;
+  margin: 20px 0 0 20px;
+  font-size: 35px;
+  line-height: 70px;
+  background-color: #e7eaf1;
+  color: #333;
+}
+#snsAreaBak{
+  height: 65%;
+  width: 100%;
+  display: table;
+}
+#snsArea{
+  display: table-cell;
+  /*background-color: blue;*/
+  vertical-align: middle;
+}
+.sns{
+  list-style: none;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 30px 70px;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+
+/*SNS动画开始*/
+@-webkit-keyframes rubberBandSNS {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rubberBandSNS {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+.sns:hover{
+  -webkit-animation-name: rubberBandSNS;
+  animation-name: rubberBandSNS;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+/*SNS动画结束*/
+/*SNS图标*/
+.sns img{
+  height: 80px;
+  width: 80px;
+}
+
+/*联系模块结束*/
+
+#footer{
+  display: block;
+  color: both;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}

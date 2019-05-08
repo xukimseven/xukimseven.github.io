@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>resume</title>
+	<script src="./iconfont/iconfont.js"></script>
+	<style>
+		.icon {
+		   width: 1.5em; height: 1.5em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		}
+		html,body,div,ul,li{
+			margin: 0;
+			padding: 0;
+			font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu ;
+		}
+		a,button{
+			outline: none;
+			/*text-decoration: none;*/
+		}
+		a{
+			color: #e24407;
+			transition-duration: .5;
+		}
+		a:hover{
+			color: #234567;
+			transition-duration: .5;
+		}
+		.main,.center,.resumeMain,.name,.line,.area,
+		.area ul li,.works,#download{
+			-webkit-box-sizing: border-box;
+					box-sizing: border-box;
+		}
+		.main{
+			width: 1280px;
+			height: auto;
+			background-color: #00c192;
+			margin: 0 auto;
+			padding: 30px 40px;
+
+			position: relative;
+		}
+		.center{
+			background-image: url(./bg.jpg);
+			height: auto;
+			width: 100%;
+			padding: 40px;
+			border-radius: 3px;
+		}
+		.findJob{
+			height: 160px;
+			background-image: url(top_bg.png);
+			background-repeat: no-repeat;
+		}
+		.resumeMain{
+			height: auto;
+			width: 100%;
+			padding: 40px;
+			border-radius: 10px;
+			border: 1px solid #e7eaf1;
+			background-color: rgba(255,255,255,.9);
+			-webkit-box-shadow: 0 0 1px rgba(0,0,0,.4);
+					box-shadow: 0 0 1px rgba(0,0,0,.4);
+			margin-top: 30px;
+		}
+		.top{
+			height: 280px;
+			width: 100%;
+			color: #555;
+		}
+		.imgBak{
+			height: 280px;
+			width: 210px;
+			border: 1px solid #e7eaf1;
+			background-color: rgba(255,255,255,.8);
+			float: left;
+		}
+		.resumeMain img{
+			display: block;
+			height: 267px;
+			width: 200px;
+			margin: 6.5px 5px;
+		}
+		.name{
+			height: 280px;
+			width: calc(100% - 220px);
+			float: right;
+			padding: 20px;
+		}
+		.name h1{
+			font-size: 30px;
+			font-weight: normal;
+		}
+		.name span{
+			font-size: 18px;
+			line-height: 2;
+		}
+		h2{
+			margin-top: 50px;
+			font-size: 28px;
+			color: #444;
+			display: block;
+			position: relative;
+			height: auto;
+			width: auto;
+			text-align: center;
+		}
+		.line{
+			height: 100%;
+			width: 5%;
+			border-bottom: 5px solid #00c192;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		.area{
+			height: auto;
+			width: 100%;
+			padding: 30px;
+		}
+		table{
+		    table-layout:fixed;
+		    empty-cells:show; 
+		    border-collapse: collapse;
+		    margin:0 auto;
+		    width: 100%;
+		    color: #555;
+		}
+		tr{
+		    height:40px;
+		    width: 100%;
+		    text-align: center;
+		}
+		tr.notCenter{
+			text-align: left;
+		}
+
+		.area ul li{
+			list-style: none;
+			display: inline-block;
+			height: auto;
+			width: 45%;
+			border: 1px solid #e7eaf1;
+			transition-duration: .5s;
+			border-radius: 3px;
+		}
+		.area ul li:hover{
+			-webkit-box-shadow: 0 0 10px #555;
+			transition-duration: .5s;
+		}
+		.img{
+			width: 100%;
+			height: 250px;
+		}
+		/*.area a {
+			display: block;
+			height: 100%;
+			width: 100%;
+		}*/
+		.area ul a li{
+			margin: 10px 2.35%;
+		}
+		.area ul a:nth-child(1) li .img{
+			background-image: url(HardCandy.png);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.area ul a:nth-child(2) li .img{
+			background-image: url(soulmusic.png);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.area ul a:nth-child(3) li .img{
+			background-image: url(hkb.png);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.area ul a:nth-child(4) li .img{
+			background-image: url(system.png);
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.works{
+			height: auto;
+			width: 100%;
+			padding: 10px 20px;
+			background-color: white;
+		}
+		.works span{
+			line-height: 1.7;
+		}
+
+		.area ul li{
+			margin: 0 2.35% 10px;
+			padding: 10px 20px;
+		}
+		.area ul li span:nth-child(1){
+			display: block;
+			float: left;
+		}
+		.area ul li span:nth-child(2){
+			display: block;
+			float: right;
+		}
+		.area ul li span:nth-child(3){
+			display: block;
+			height: 20px;
+			width: 100%;
+			background-color: #f4f4f4;
+			clear: both;
+			margin-top: 30px;
+			position: relative;
+		}
+		.area ul li span:nth-child(3)::before{
+			content: "";
+			/*width: 60%;*/
+			height: 100%;
+			position: absolute;
+			left: 0;
+			background-color: #00c192;
+		}
+
+		#download{
+			display: block;
+			height: 40px;
+			width: 150px;
+			border-radius: 5px;
+			background-color: white;
+			color: #00c192;
+			border: 2px solid #00c192;
+			margin: 20px auto 0;
+			line-height: 36px;
+			text-align: center;
+			transition-duration: .5s;
+			text-decoration: none;
+		}
+		#download:hover{
+			background-color: #00c192;
+			color: white;
+			transition-duration: .5s;
+		}
+
+		.minTitle{
+			height: 40px;
+			width: 120px;
+			box-sizing: border-box;
+			padding: 0 10px;
+			background-color: #00c192;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			color: white;
+			font-size: 20px;
+			line-height: 40px;
+
+			position: relative;
+		}
+		.minTitle::before{
+			content: '';
+			height: 0;
+			width: 0;
+			position: absolute;
+			left: 0;
+			top: -10px;
+
+			border-bottom: 10px solid #00a063;
+	        border-left: 30px solid transparent;		
+	    }
+	    .mainTable{
+	    	width: 80%;
+	    	margin: 0 0 0 auto;
+	    }
+
+	    .ps{
+	    	position: absolute;
+	    	top: 120px;
+	    	right: 40px;
+			
+			height: 35px;
+			width: auto;
+			box-sizing: border-box;
+			padding: 0 20px;
+			line-height: 35px;
+			color: #fff;
+			background-color: rgba(0,0,0,.6);
+			font-size: 16px;
+			border-bottom-left-radius: 17.5px;
+			border-top-left-radius: 17.5px;
+	    }
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="ps">
+			PS：简历里有些地方是可以点的哦，去试试看
+		</div>
+		<div class="center">
+			<div class="findJob"></div>
+			<div class="resumeMain">
+				<div class="top">
+					<div class="imgBak">
+						<img src="./profile.JPG" alt="我的头像">
+					</div>
+					<div class="name">
+						<h1>姓名：徐 金 琦</h1>
+						<span>&emsp;&emsp;本人就读于 [ 浙江万里学院 ]，是个计算机专业的大四小学生（2018年）。爱好有多多，看篮球足球、 打篮球、看动漫、看综艺以及写前端、设计前端。
+							<br>&emsp;&emsp;想要了解更多的我，欢迎关注在我的 <a href="http://xseven.me">个人博客</a> 。 
+							<br>&emsp;&emsp;亦或是关注我的GitHub主页 <a href="https://github.com/xukimseven">Github</a> ,这里有我近期上传的小项目 。</span>
+					</div>
+				</div>
+
+				<h2>基 本 信 息<div class="line"></div></h2>
+				<div class="area">
+					<table class='mainTable'>
+						<tr class="notCenter">
+							<td>性别：男</td>
+							<td>年龄：22岁</td>
+						</tr>
+						<tr class="notCenter">
+							<td>名族：汉</td>
+							<td>身高体重：178cm/65kg</td>
+						</tr>
+						<tr class="notCenter">
+							<td>所在地：浙江宁波</td>
+							<td>目前学历：大学本科在读</td>
+						</tr>
+						<tr class="notCenter">
+							<td><a href="tel:17857024660">联系我：178-5702-4660</a></td>
+							<td><a href="mailto:xujinqi7@gmail.com">联系我：xujinqi7@gmail.com</a></td>
+						</tr>
+					</table>
+				</div>
+				
+				<h2>求 职 意 向<div class="line"></div></h2>
+				<div class="area">
+					<table>
+						<tr>
+							<td>
+								<svg class="icon" aria-hidden="true">
+								  <use xlink:href="#icon-gongwenbao"></use>
+								</svg>
+								web前端开发
+							</td>
+							<td>
+								<svg class="icon" aria-hidden="true">
+								  <use xlink:href="#icon-renwujihua"></use>
+								</svg>
+								实习
+							</td>
+							<td>
+								<svg class="icon" aria-hidden="true">
+								  <use xlink:href="#icon-chengshifuwu"></use>
+								</svg>
+								宁波 或 杭州
+							</td>
+							<td>
+								<svg class="icon" aria-hidden="true">
+								  <use xlink:href="#icon-tubiao207"></use>
+								</svg>
+								薪资面议
+							</td>
+							<td>
+								<svg class="icon" aria-hidden="true">
+								  <use xlink:href="#icon-ai-calendar"></use>
+								</svg>
+								一周内到岗
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<h2>教 育 背 景<div class="line"></div></h2>
+				<div class="area">
+					<table>
+						<tr>
+							<td>浙江万里学院</td>
+							<td>计算机科学与技术</td>
+							<td>2015.9 - 2019.6</td>
+						</tr>
+					</table>
+				</div>
+
+				<h2>就 业 背 景<div class="line"></div></h2>
+				<div class="area">
+					<table>
+						<tr>
+							<td>浙江中吉恒通网络科技有限公司</td>
+							<td>web前端</td>
+							<td>2018.6.25 - 2018.10.15</td>
+						</tr>
+					</table>
+				</div>
+
+				<h2>作 品 展 示<div class="line"></div></h2>
+				<div class="area">
+					<ul>
+						<a href="https://github.com/xukimseven/HardCandy-Jekyll" title="点击查看"><li><div class="img"></div>
+							<div class="works">
+								<h3>HardCandy-Jekyll</h3>
+								<span style="float: left;">
+									一款清新 糖果色🍬 的 ‘Jekyll’ 主题。 <br>
+									A candy-colored 🍬 ‘Jekyll’ theme.  <br>
+									&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;—— 目前获 star 数为 38 （2018-10-18）
+								</span>
+							</div>
+						</li></a>
+						<a href="http://www.since1105.wang/soulmusic" title="点击查看"><li><div class="img"></div>
+							<div class="works">
+								<h3>Soulmusic</h3>
+								<span>
+									一款在线音乐网站 <br>
+									具备在线听歌，在线搜歌，在线观看音乐视频等功能
+								</span>
+							</div>
+						</li></a>
+						<a href="javascript:;"><li><div class="img"></div>
+							<div class="works">
+								<h3>还卡宝</h3>
+								<span>
+									这是本人就业以来做的第一个项目，是一个 微信小程序 ，前端部分由个人独立开发。用手机扫码即可查看小程序。
+								</span>
+							</div>
+						</li></a>
+						<a href="javascript:;"><li><div class="img"></div>
+							<div class="works">
+								<h3>多个公司后台管理系统</h3>
+								<span>
+									该部分为公司的后台管理系统，由于零零散散，且多在公司内网运行。所以，没有具体的可见网址供参考。
+								</span>
+							</div>
+						</li></a>
+					</ul>
+				</div>
+
+				<h2>技 能 特 长<div class="line"></div></h2>
+				<div class="area">
+					<div class="minTitle">
+						主 要 技 	能
+					</div>
+					<ul id="mainSkill">
+						<li>
+							<span>css3</span>
+							<span>精 通</span>
+							<span class="progressMain"></span>
+						</li>
+						<li>
+							<span>html</span>
+							<span>精 通</span>
+							<span class="progressMain"></span>
+						</li>
+						<li>
+							<span>javascript</span>
+							<span>精 通</span>
+							<span class="progressMain"></span>
+						</li>
+						<li>
+							<span>vue.js</span>
+							<span>熟 练</span>
+							<span class="progressMain"></span>
+						</li>
+						<li>
+							<span>微信小程序</span>
+							<span>精 通</span>
+							<span class="progressMain"></span>
+						</li>
+					</ul>
+					<div class="minTitle">
+						辅 助 技 	能
+					</div>
+					<ul id="exSkill">
+						<li>
+							<span>JQuary</span>
+							<span>了 解</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>nodeJs</span>
+							<span>良 好</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>jekyll</span>
+							<span>熟 练</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>ubuntu</span>
+							<span>熟 练</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>centos7</span>
+							<span>良 好</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>echat</span>
+							<span>良 好</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>php</span>
+							<span>了 解</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>MySQL</span>
+							<span>了 解</span>
+							<span class="progressEx"></span>
+						</li>
+						<li>
+							<span>canvas</span>
+							<span>了 解</span>
+							<span class="progressEx"></span>
+						</li>
+
+					</ul>
+				</div>
+				
+				<a href="./徐金琦的个人简历-resume.pdf" download="徐金琦的个人简历" id="download">下载我的简历</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var mainWidth = ['86%','80%','78%','72%','82%'],
+		progressMain = document.getElementsByClassName('progressMain'),
+		exWidth = ['47%','65%','70%','70%','63%','66%','44%','45%','42%'],
+		progressEx = document.getElementsByClassName('progressEx');
+	console.log(progressMain.length);
+	console.log(progressEx.length);
+	for (let i = 0; i < progressMain.length; i++) {
+		let beforeStyle = window.getComputedStyle(progressMain[i], "::before");
+		// beforeStyle.width = width[i] ;
+		console.log(beforeStyle);
+		console.log(mainWidth[i]);
+
+		let style=document.createElement('style');
+		style.innerHTML=".area ul#mainSkill li:nth-child("+ (i+1) +") span:nth-child(3)::before{content:'"+ mainWidth[i] +"';width:"+ mainWidth[i] +";line-height:20px;text-align:right;color:white;font-size:13px;box-sizing:border-box;padding-right:10px;}";//添加样式内容的话也可以用上面提到过的`insertRule`,相对例子里的硬编码会更优雅点。
+		document.head.appendChild(style);
+	}
+	for (let i = 0; i < progressEx.length; i++) {
+		let beforeStyle = window.getComputedStyle(progressEx[i], "::before");
+		// beforeStyle.width = width[i] ;
+		console.log(beforeStyle);
+		console.log(exWidth[i]);
+
+		let style=document.createElement('style');
+		style.innerHTML=".area ul#exSkill li:nth-child("+ (i+1) +") span:nth-child(3)::before{content:'"+ exWidth[i] +"';width:"+ exWidth[i] +";line-height:20px;text-align:right;color:white;font-size:13px;box-sizing:border-box;padding-right:10px;}";//添加样式内容的话也可以用上面提到过的`insertRule`,相对例子里的硬编码会更优雅点。
+		document.head.appendChild(style);
+	}
+
+</script>
+</html>

@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "Welcome to XuKimSeven's Blog!"
+
+date:   2018-1-17 18:04:13
+tags:
+color: 'rgb(154,133,255)'
+description: ''
+categories:
+color: 'rgb(255,90,90)'
+---
+
+
+ Welcome to My Blog!
+
+<!--more-->
+
+-------------------------------------------------------
+
+test !

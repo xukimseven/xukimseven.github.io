@@ -1,0 +1,378 @@
+---
+layout: post
+title:  "Ngrok内网穿透！！"
+
+date:   2018-1-18 20:04:13
+tags:
+- 网络
+- CentOS
+- ngrok
+description: ''
+categories:
+color: 'rgb(255,210,32)'
+---
+
+
+### CentOS7(amd64)服务器 + windows客户端 + SSH Secure Shell Client远程连接Linux工具 + ngrok 配置 内网穿透
+
+<!--more-->
+
+
+
+### 前言：
+
+​	有些小伙伴会问说，内网穿透是干嘛的，做什么事情要用到内网穿透啊？
+
+​	其实刚开始，本人并不知道有这么一回事情，只是有件事情特烦。就是在学校的寝室里用mstsc远程不了阿里云的服务器，这让我一个想要学习网站搭建“小学生”来说可谓是烦到爆。每次想要测试一下，就要将电脑连接到手机热点，这样才能连上服务器，来传东西。过程繁琐，耗流量网速还慢。
+
+​	一天，一个室友Y咪咪说，你用内网穿透啊，我弄好了，现在自己电脑就是服务器，到哪只要有网就能连到自己的电脑，可远程，可挂网站，还剩去了传文件的繁琐过程。对于这种好事，我是不会放过的。所以，我就和我另一个室友小气的王二狗搞起了内网穿透。
+
+
+
+### 1、准备
+
+一台云服务器,一个域名,并且域名解析到云服务器,并且服务器的操作系统为CentOS7(amd64)
+
+
+
+### 2、安装环境
+
+安装gcc和git（用于下载ngrok源码）
+
+```shell
+yum install gcc -y
+yum install git -y
+```
+
+
+
+### 3、安装go语言环境
+
+```shell
+yum install -y mercurial git bzr subversion golang golang-pkg-windows-amd64 golang-pkg-windows-386
+```
+
+
+
+### 4、检查环境安装
+
+```shell
+git --version //( >= 1.7 )
+go version
+```
+
+
+
+### 5、在服务器上搭建Ngrok服务
+
+
+
+#### 5.1.下载ngrok源码
+
+```shell
+git clone https://github.com/inconshreveable/ngrok.git
+```
+
+#### 5.2.生成证书
+
+```shell
+cd ngrok
+```
+
+```shell
+#这里修改为自己的域名
+export NGROK_DOMAIN="abc.com"
+
+openssl genrsa -out rootCA.key 2048
+
+openssl req -x509 -new -nodes -key rootCA.key -subj "/CN=$NGROK_DOMAIN" -days 5000 -out rootCA.pem
+
+openssl genrsa -out device.key 2048
+
+openssl req -new -key device.key -subj "/CN=$NGROK_DOMAIN" -out device.csr
+
+openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000
+```
+
+#### 5.3.将新生成的证书替换，执行下面命令后 “y” 回车 一行一行执行代码！
+
+```shell
+cp rootCA.pem assets/client/tls/ngrokroot.crt
+```
+
+```shell
+cp device.crt assets/server/tls/snakeoil.crt
+```
+
+```shell
+cp device.key assets/server/tls/snakeoil.key
+```
+
+
+
+
+
+### 6、编译生成ngrokd（服务端）
+
+```shell
+GOOS=linux GOARCH=amd64 make release-server
+```
+
+​	生成在~/ngrok/bin/目录中
+
+
+
+### 7、编译生成ngrok（客户端）
+
+```shell
+GOOS=windows GOARCH=amd64 make release-client
+```
+
+​	生成在~/ngrok/bin/windows_amd64/目录中
+
+
+
+### 8、用**SSH Secure Shell Client**工具
+
+将~/ngrok/bin/windows_amd64/里的文件下载到本地Windows下，如D:\ngrok
+
+
+
+### 9、在D:\ngrok中新建文件，改名为 **ngrok.cfg**
+
+文件中输入：
+
+```shell
+server_addr: "abc.com:8083" // 8083 监控端口
+trust_host_root_certs: false
+tunnels:
+
+  http:
+subdomain: "www"
+proto:
+http: "80"     // http 端口 httpAddr=":80"
+
+  https:
+subdomain: "www"
+proto:
+https: "443"   // https 端口 httpsAddr=":443"
+
+  ssh:
+remote_port: 2222
+proto:
+tcp: "22"              
+
+  mstsc:
+remote_port: 52222   // 远程开启52222或其他，只要不冲突  
+proto:
+tcp: "192.168.1.7:3389" // 本地windows的ip以及远程访问端口3389(默认)
+
+```
+
+以上 8083 80 443 与 远程开启的端口一致，
+
+**根据自己的实际情况在服务器后台安全组规则中开启或删除。**
+
+
+
+### 10、开启远程服务
+
+在ngrok目录中
+
+如果不在
+
+```shell
+cd ngrok
+```
+
+```shell
+sudo ./bin/ngrokd -domain="abc.com"  -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":8083" &
+```
+
+
+
+这里的端口号与config文件对应，视情况而定
+
+[16:05:23 CST 2018/01/09][INFO] (ngrok/log.(*PrefixLogger).Info:83) [registry][tun] No affinity cache specified
+
+[16:05:23 CST 2018/01/09][INFO] (ngrok/log.Info:112) Listening for public http connections on [::]:**80**
+
+[16:05:23 CST 2018/01/09][INFO] (ngrok/log.Info:112) Listening for public https connections on [::]:**443**
+
+[16:05:23 CST 2018/01/09][INFO] (ngrok/log.Info:112) Listening for control and proxy connections on [::]:**8083**
+
+[16:05:23 CST 2018/01/09][INFO] (ngrok/log.(*PrefixLogger).Info:83) [metrics] Reporting every 30 seconds
+
+------
+
+显示此为成功开启
+
+
+
+### 11、开启客户机服务
+
+在Windows中D:\ngrok新建文件 改名 start.bat
+
+输入：
+
+```shell
+ngrok -config=ngrok.cfg start http https ssh mstsc
+```
+
+
+
+直接双击运行
+
+
+
+ngrok
+
+Tunnel Status                 online
+
+Version                       1.7/1.7
+
+Forwarding                    http://www.abc.com -> 127.0.0.1:80
+
+Forwarding                    https://www.abc.com -> 127.0.0.1:443
+
+Forwarding                    tcp://abc.com:2222 -> 127.0.0.1:22
+
+Forwarding                    tcp://abc.com:52222 -> 192.168.1.7:3389
+
+Web Interface                 127.0.0.1:4040
+
+Conn                        0
+
+Avg Conn Time                 0ms
+
+------
+
+表示成功，
+
+#### **不成功的话看看自己的开启端口是否与config文件中对应**
+
+#### **或查看服务器的远程端口是否在安全组中打开**
+
+#### **！！！这很重要！！！**
+
+
+
+
+
+
+
+------
+
+
+
+### 关于ngrok在远程开机自启问题
+
+
+
+服务器后台开机启动运行ngrok服务端：
+
+
+
+1.以下内容新建一个 **start.sh** 文件  放到  ~/ngrok/start.sh
+
+```shell
+~/ngrok/bin/ngrokd -domain="abc.com"  -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":8083" &
+```
+
+给权限：
+
+```shell
+chmod 755 ~/ngrok/start.sh
+```
+
+
+
+2.新建ngrok启动脚本文件
+
+```shell
+sudo vi /etc/init.d/ngrok
+```
+
+文件内容：
+
+```
+!/bin/sh
+
+BEGIN INIT INFO
+
+Provides:          ngrok
+
+Required-Start:
+
+Required-Stop:
+
+Default-Start:     2 3 4 5
+
+Default-Stop:      0 1 6
+
+Short-Description: Start or stop the ngrok Proxy.
+
+END INIT INFO
+
+ngrok_path=~/ngrok/
+
+case "$1" in
+
+    start)
+            echo "start ngrok service.."
+            sh ${ngrok_path}/start.sh
+            ;;
+   *)
+    exit 1
+    ;;
+esac
+```
+
+提示 : 运行sudo vi /etc/init.d/ngrok之后  ！！直接按键盘 I 进入编辑模式，然后复制下面内容 然后 “esc” ":" "wq" "!"  “回车”  意思是保存退出！
+
+
+
+3.ngrok脚本文件 给权限
+
+```shell
+cd /etc/init.d
+chmod 755 ngrok
+```
+
+
+
+4.添加启动服务 ngrok
+
+chkconfig --add  ngrok
+
+
+
+5.测试服务是否能启动成功
+
+```shell
+service ngrok start
+```
+
+
+
+6.查看自启动的服务 是否有 nrgok ！！
+
+```shell
+chkconfig    
+```
+
+执行这个代码如果出现后面的就OK了！！   **ngrok                  0:off        1:off        2:on        3:on        4:on        5:on        6:off**
+
+
+
+**服务器ngrok的服务端开机自动启动成功了！！！**
+
+
+
+------
+
+​	这样一来，自己的电脑就成 了一台服务器，只要电脑不关，且连着网的话，就非常适合做一个小型网站的测试平台了。
+
+​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。
+
+​	如需转载，请注明出处，谢谢。
